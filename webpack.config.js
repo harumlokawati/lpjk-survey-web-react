@@ -1,9 +1,9 @@
-const path = require("path");
-const webpack = require("webpack");
+const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
-    entry: "./app/index.js",
-    mode: "development",
+    entry: './app/index.js',
+    mode: 'development',
     module: {
         rules: [
             {
@@ -20,15 +20,15 @@ module.exports = {
     },
     resolve: { extensions: ['*', '.js', '.jsx'] },
     output: {
-        path: path.resolve(__dirname, "build/"),
-        publicPath: "/build/",
-        filename: "bundle.js"
+        path: path.resolve(__dirname, 'build/'),
+        publicPath: '/build/',
+        filename: 'bundle.js'
     },
     devServer: {
         contentBase: path.resolve(__dirname),
         port: 3000,
-        publicPath: "http://localhost:3000/build/",
+        publicPath: 'http://localhost:3000/build/',
         hotOnly: true
     },
     plugins: [ new webpack.HotModuleReplacementPlugin() ]
-};
+}
