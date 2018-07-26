@@ -42,6 +42,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.SourceMapDevToolPlugin({}),
     new webpack.ProvidePlugin({
+      axios: 'axios',
       'React': 'react',
       'ReactDOM': 'react-dom',
     })
