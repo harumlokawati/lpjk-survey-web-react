@@ -1,7 +1,7 @@
 import React from 'react'
+import {hot} from 'react-hot-loader'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { hot } from 'react-hot-loader'
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { pageRequest } from 'actions/survey/index'
 import Survey from 'pages/Survey'
