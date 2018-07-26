@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { hot } from 'react-hot-loader'
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { pageRequest } from 'actions/survey/index'
 
 class App extends React.Component {
   render () {
@@ -14,6 +16,7 @@ class App extends React.Component {
 
   _onClickRunApi () {
     // TODO: add saga listener
+    this.props.dispatch(pageRequest())
   }
 }
 
