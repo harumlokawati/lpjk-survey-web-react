@@ -1,8 +1,7 @@
-import { call, takeLatest } from 'redux-saga/effects'
+import { put, call, takeLatest } from 'redux-saga/effects'
 import { SURVEY_PAGE_REQUEST } from 'actions/survey/constants'
 import * as apiSurvey from 'api/survey/index'
 import * as actSurvey from 'actions/survey/index'
-
 
 function * pageRequest (action) {
   try {
