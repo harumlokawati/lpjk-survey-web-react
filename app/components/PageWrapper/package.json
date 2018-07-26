@@ -1,0 +1,5 @@
+{
+  "name": "PageWrapper",
+  "private": true,
+  "main": "./PageWrapper.js"
+}
