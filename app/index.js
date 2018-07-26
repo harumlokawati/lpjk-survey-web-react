@@ -1,17 +1,31 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { createStore, combineReducers } from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import createSagaMiddleware from 'redux-saga'
 import App from './pages/App.js'
 
 // Reducer
 import { reducer as surveyReducer } from 'reducers/survey/index'
 
+// Saga
+import surveySaga from 'sagas/survey/index'
+
+const sagaMiddleware = createSagaMiddleware()
+
 const reducer = {
   survey: surveyReducer
 }
 
-const store = createStore(combineReducers(reducer))
+const store = createStore(combineReducers(reducer),
+  composeWithDevTools(
+    applyMiddleware(sagaMiddleware)
+    // other store enhancers if any
+  )
+)
+
+sagaMiddleware.run(surveySaga)
 
 ReactDOM.render(
   <Provider store={store}>
