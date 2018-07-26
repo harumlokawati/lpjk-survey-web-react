@@ -21,7 +21,7 @@ import {
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUPPLY_CHAIN,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUPPLY_CHAIN_ORIGIN,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_TYPE
-} from 'actions/survery/constants'
+} from 'actions/survey/constants'
 
 let initialState = {
   companyCategory: {},
@@ -94,6 +94,8 @@ const reducer = (state = initialState, action) => {
       return {...state, constructionProductType: payload.technologyConstructionSupplyChainOrigin}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_TYPE:
       return {...state, constructionProductType: payload.technologyConstructionType}
+    default:
+      return {...state}
   }
 }
 
