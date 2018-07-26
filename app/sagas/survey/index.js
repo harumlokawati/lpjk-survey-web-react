@@ -1,4 +1,4 @@
-import { call, put, takeLatest } from 'redux-saga/effects'
+import { call, takeLatest } from 'redux-saga/effects'
 import { SURVEY_PAGE_REQUEST } from 'actions/survey/constants'
 import * as apiSurvey from 'api/survey/index'
 import * as actSurvey from 'actions/survey/index'
