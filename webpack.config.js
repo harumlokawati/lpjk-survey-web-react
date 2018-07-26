@@ -18,7 +18,14 @@ module.exports = {
       }
     ]
   },
-  resolve: { extensions: ['*', '.js', '.jsx'] },
+  resolve: {
+    modules: [
+      __dirname,
+      'node_modules',
+      path.resolve(__dirname, './app')
+    ],
+    extensions: ['*', '.js', '.jsx']
+  },
   output: {
     path: path.resolve(__dirname, 'build/'),
     publicPath: '/build/',
@@ -30,5 +37,11 @@ module.exports = {
     publicPath: 'http://localhost:3000/build/',
     hotOnly: true
   },
-  plugins: [ new webpack.HotModuleReplacementPlugin() ]
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.ProvidePlugin({
+      'React': 'react',
+      'ReactDOM': 'react-dom',
+    })
+  ]
 }
