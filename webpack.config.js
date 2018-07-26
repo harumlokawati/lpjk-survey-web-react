@@ -4,6 +4,7 @@ const webpack = require('webpack')
 module.exports = {
   entry: './app/index.js',
   mode: 'development',
+  devtool: false,
   module: {
     rules: [
       {
@@ -39,6 +40,7 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.SourceMapDevToolPlugin({}),
     new webpack.ProvidePlugin({
       'React': 'react',
       'ReactDOM': 'react-dom',
