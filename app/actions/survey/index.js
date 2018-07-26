@@ -1,4 +1,5 @@
 import {
+  SURVEY_PAGE_REQUEST,
   SURVEY_SET_COMPANY_CATEGORY,
   SURVEY_SET_COMPANY_TYPE,
   SURVEY_SET_CONSTRUCTION_PRODUCT_TYPE,
@@ -21,12 +22,12 @@ import {
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_TYPE
 } from './constants'
 
-export function setCompanyCategory (companyCategory) {
-  return {type: SURVEY_SET_COMPANY_CATEGORY, payload: {companyCategory}}
+export function pageRequest () {
+  return {type: SURVEY_PAGE_REQUEST, payload: {}}
 }
 
-export function setCompanyType (companyType) {
-  return {type: SURVEY_SET_COMPANY_TYPE, payload: {companyType}}
+export function setCompanyCategory (companyCategory) {
+  return {type: SURVEY_SET_COMPANY_CATEGORY, payload: {companyCategory}}
 }
 
 export function setCompanyType (companyType) {
