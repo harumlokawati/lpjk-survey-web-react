@@ -5,6 +5,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import App from './pages/App.js'
+import './styles/main.css'
 
 // Reducer
 import { reducer as surveyReducer } from 'reducers/survey/index'

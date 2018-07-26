@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   entry: './app/index.js',
@@ -15,7 +16,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
@@ -44,7 +45,7 @@ module.exports = {
     new webpack.ProvidePlugin({
       axios: 'axios',
       'React': 'react',
-      'ReactDOM': 'react-dom',
+      'ReactDOM': 'react-dom'
     })
   ]
 }

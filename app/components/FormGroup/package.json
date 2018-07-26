@@ -1,0 +1,5 @@
+{
+  "name": "FormGroup",
+  "private": true,
+  "main": "./FormGroup.js"
+}
