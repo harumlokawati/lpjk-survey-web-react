@@ -1,5 +1,7 @@
 import './ChecboxFormGroup.css'
 import CheckboxField from 'components/Fields/CheckboxField'
+import FormGroup from '@material-ui/core/FormGroup'
+import { Field } from 'redux-form'
 
 class ChecboxFormGroup extends React.Component {
   render () {
@@ -7,20 +9,16 @@ class ChecboxFormGroup extends React.Component {
     return (
       <div className={`form-group ${className}`}>
         <p>{question}</p>
-        {renderCheckboxes(options)}
+        <FormGroup>
+          {options.map(function (option, index) {
+            return (
+              <Field key={index} name={option} component={CheckboxField} label={option} />
+            )
+          })}
+        </FormGroup>
       </div>
     )
   }
 }
-
-var renderCheckboxes = (options) => (
-  options.map(function (option, index) {
-    return renderCheckbox(option, index)
-  })
-)
-
-var renderCheckbox = (option, index) => (
-  <CheckboxField key={index} label={option} name={option} />
-)
 
 export default ChecboxFormGroup
