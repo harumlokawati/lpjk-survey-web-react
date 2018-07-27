@@ -39,72 +39,72 @@ export function setConstructionProductType (constructionProductType) {
 }
 
 export function setTechnologyConstructionAssessment (technologyConstructionAssessment) {
-  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_ASSESSMENT, payload: technologyConstructionAssessment}
+  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_ASSESSMENT, payload: {technologyConstructionAssessment}}
 }
 
 export function setTechnologyConstructionAssessmentMethod (technologyConstructionAssessmentMethod) {
-  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_ASSESSMENT_METHOD, payload: technologyConstructionAssessmentMethod}
+  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_ASSESSMENT_METHOD, payload: {technologyConstructionAssessmentMethod}}
 }
 
 export function setTechnologyConstructionBenefit (technologyConstructionBenefit) {
-  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_BENEFIT, payload: technologyConstructionBenefit}
+  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_BENEFIT, payload: {technologyConstructionBenefit}}
 }
 
 export function setTechnologyConstructionCategory (technologyConstructionCategory) {
-  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_CATEGORY, payload: technologyConstructionCategory}
+  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_CATEGORY, payload: {technologyConstructionCategory}}
 }
 
 export function setTechnologyConstructionCost (technologyConstructionCost) {
-  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_COST, payload: technologyConstructionCost}
+  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_COST, payload: {technologyConstructionCost}}
 }
 
 export function setTechnologyConstructionHumanResource (technologyConstructionHumanResource) {
-  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_HUMAN_RESOURCE, payload: technologyConstructionHumanResource}
+  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_HUMAN_RESOURCE, payload: {technologyConstructionHumanResource}}
 }
 
 export function setTechnologyConstructionInovationCategory (technologyConstructionInovationCategory) {
-  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_INOVATION_CATEGORY, payload: technologyConstructionInovationCategory}
+  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_INOVATION_CATEGORY, payload: {technologyConstructionInovationCategory}}
 }
 
 export function setTechnologyConstructionInovationOrigin (technologyConstructionInovationOrigin) {
-  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_INOVATION_ORIGIN, payload: technologyConstructionInovationOrigin}
+  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_INOVATION_ORIGIN, payload: {technologyConstructionInovationOrigin}}
 }
 
 export function setTechnologyConstructionObstacle (technologyConstructionObstacle) {
-  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_OBSTACLE, payload: technologyConstructionObstacle}
+  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_OBSTACLE, payload: {technologyConstructionObstacle}}
 }
 
 export function setTechnologyConstructionOrigin (technologyConstructionOrigin) {
-  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_ORIGIN, payload: technologyConstructionOrigin}
+  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_ORIGIN, payload: {technologyConstructionOrigin}}
 }
 
 export function setTechnologyConstructionOwner (technologyConstructionOwner) {
-  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_OWNER, payload: technologyConstructionOwner}
+  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_OWNER, payload: {technologyConstructionOwner}}
 }
 
 export function setTechnologyConstructionPrimaryType (technologyConstructionPrimaryType) {
-  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_PRIMARY_TYPE, payload: technologyConstructionPrimaryType}
+  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_PRIMARY_TYPE, payload: {technologyConstructionPrimaryType}}
 }
 
 export function setTechnologyConstructionStage (technologyConstructionStage) {
-  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_STAGE, payload: technologyConstructionStage}
+  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_STAGE, payload: {technologyConstructionStage}}
 }
 
 export function setTechnologyConstructionSuccessFactor (technologyConstructionSuccessFactor) {
-  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUCCESS_FACTOR, payload: technologyConstructionSuccessFactor}
+  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUCCESS_FACTOR, payload: {technologyConstructionSuccessFactor}}
 }
 
 export function setTechnologyConstructionSupplyChain (technologyConstructionSupplyChain) {
-  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUPPLY_CHAIN, payload: technologyConstructionSupplyChain}
+  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUPPLY_CHAIN, payload: {technologyConstructionSupplyChain}}
 }
 
 export function setTechnologyConstructionSupplyChainOrigin (technologyConstructionSupplyChainOrigin) {
   return {
     type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUPPLY_CHAIN_ORIGIN,
-    payload: technologyConstructionSupplyChainOrigin
+    payload: {technologyConstructionSupplyChainOrigin}
   }
 }
 
 export function setTechnologyConstructionType (technologyConstructionType) {
-  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_TYPE, payload: technologyConstructionType}
+  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_TYPE, payload: {technologyConstructionType}}
 }
