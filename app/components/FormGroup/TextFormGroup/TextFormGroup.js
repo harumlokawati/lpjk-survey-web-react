@@ -1,6 +1,6 @@
-import TextField from '../Fields/TextField'
+import TextField from 'components/Fields/TextField/TextField'
 
-class FormGroup extends React.Component {
+class TextFormGroup extends React.Component {
   render () {
     let {question, className} = this.props
     return (
@@ -12,4 +12,4 @@ class FormGroup extends React.Component {
   }
 }
 
-export default FormGroup
+export default TextFormGroup
