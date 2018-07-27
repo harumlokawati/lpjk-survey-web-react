@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import RadioButtonFormGroup from 'components/FormGroup/RadioButtonFormGroup'
 import TextFormGroup from 'components/FormGroup/TextFormGroup'
 import CheckboxFormGroup from 'components/FormGroup/CheckboxFormGroup'
+import { pageRequest } from 'actions/survey'
 
 const QUESTION_1 = 'Apa nama perusahaan tempat anda bekerja?'
 const QUESTION_2 = 'Dimana lokasi perusahaan tempat anda bekerja?'
@@ -15,6 +16,10 @@ const QUESTION_5 = 'Apakah jenis produk konstruksi yang dihasilkan perusahaan te
 const QUESTION_6 = 'Teknologi apa yang sudah dan sedang diterapkan oleh perusahaan tempat anda bekerja dalam menghasilkan produk konstruksi?'
 
 class SurveyForm extends React.Component {
+  componentWillMount () {
+    this.props.dispatch(pageRequest())
+  }
+
   render () {
     let {handleSubmit} = this.props
     return (
