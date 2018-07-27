@@ -20,7 +20,7 @@ class RadioButtonFormGroup extends React.Component {
 
 var renderRadioButtons = (options) => (
   options.map(function (option, index) {
-    return <FormControlLabel key={index} value={option} control={<Radio />} label={option} />
+    return <FormControlLabel key={index} value={option.name} control={<Radio />} label={option.name} />
   })
 )
 

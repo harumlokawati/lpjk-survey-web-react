@@ -12,7 +12,7 @@ class ChecboxFormGroup extends React.Component {
         <FormGroup>
           {options.map(function (option, index) {
             return (
-              <Field key={index} name={option} component={CheckboxField} label={option} />
+              <Field key={index} name={option.name} component={CheckboxField} label={option.name} />
             )
           })}
         </FormGroup>
