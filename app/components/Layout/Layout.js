@@ -1,4 +1,4 @@
-import Sidebar from '../Sidebar'
+import Sidebar from 'components/Sidebar'
 import './Layout.css'
 
 class Layout extends React.Component {

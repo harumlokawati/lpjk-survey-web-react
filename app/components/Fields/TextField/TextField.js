@@ -1,11 +1,16 @@
 import './TextField.css'
+import { Field } from 'redux-form'
 
 class TextField extends React.Component {
   render () {
+    const {question} = this.props
     return (
       <div className='wrapper'>
         <label htmlFor='text-field' className='text-field'>
-          <input type='text' id='text-field' placeholder='Answer' />
+          <Field name={question}
+            component='input'
+            type='text'
+            placeholder='Answer' />
           <span className='field-label' />
           <span className='field-border' />
         </label>
