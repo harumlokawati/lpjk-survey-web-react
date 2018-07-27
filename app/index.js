@@ -8,6 +8,7 @@ import App from './pages/App.js'
 import './styles/main.css'
 
 // Reducer
+import { reducer as formReducer } from 'redux-form'
 import { reducer as surveyReducer } from 'reducers/survey/index'
 
 // Saga
@@ -16,7 +17,8 @@ import surveySaga from 'sagas/survey/index'
 const sagaMiddleware = createSagaMiddleware()
 
 const reducer = {
-  survey: surveyReducer
+  survey: surveyReducer,
+  form: formReducer
 }
 
 const store = createStore(combineReducers(reducer),
