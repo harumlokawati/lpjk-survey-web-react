@@ -20,28 +20,28 @@ class SurveyForm extends React.Component {
       <form onSubmit={handleSubmit}>
         <div className='survey-form'>
           <div className='container survey-form-header'>
-            <img className='lpjk-logo' src='http://lpjk.org/template/blue/images/logo_lpjkn_mainpage.jpg'/>
+            <img className='lpjk-logo' src='http://lpjk.org/template/blue/images/logo_lpjkn_mainpage.jpg' />
             <h3>Survey Penelitian Gambaran Teknologi Konstruksi Di Indonesia</h3>
           </div>
           <div className='container survey-form-content'>
             <div className='line-section'>Profil Perusahaan</div>
             <div className='row mb-5'>
-              <FormGroup className='col-md-6' question={QUESTION_1}/>
-              <FormGroup className='col-md-6' question={QUESTION_2}/>
+              <FormGroup className='col-md-6' question={QUESTION_1} />
+              <FormGroup className='col-md-6' question={QUESTION_2} />
             </div>
             <div className='row mb-5'>
-              <FormGroup className='col-md-6' question={QUESTION_3}/>
-              <FormGroup className='col-md-6' question={QUESTION_4}/>
+              <FormGroup className='col-md-6' question={QUESTION_3} />
+              <FormGroup className='col-md-6' question={QUESTION_4} />
             </div>
             <div className='row mb-5'>
-              <FormGroup className='col-md-6' question={QUESTION_5}/>
-              <FormGroup className='col-md-6' question={QUESTION_6}/>
+              <FormGroup className='col-md-6' question={QUESTION_5} />
+              <FormGroup className='col-md-6' question={QUESTION_6} />
             </div>
             <div className='row mt-5 mb-5'>
-              <Field name="test" component={RadioButtonGroup}>
-                <FormControlLabel value="female" control={<Radio />} label="Female" />
-                <FormControlLabel value="male" control={<Radio />} label="Male" />
-                <FormControlLabel value="other" control={<Radio />} label="Other" />
+              <Field name='test' component={RadioButtonGroup}>
+                <FormControlLabel value='female' control={<Radio />} label='Female' />
+                <FormControlLabel value='male' control={<Radio />} label='Male' />
+                <FormControlLabel value='other' control={<Radio />} label='Other' />
               </Field>
             </div>
             <div className='row'>
