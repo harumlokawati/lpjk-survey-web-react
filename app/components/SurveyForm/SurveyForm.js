@@ -7,6 +7,7 @@ import CheckboxFormGroup from 'components/FormGroup/CheckboxFormGroup'
 import { pageRequest } from 'actions/survey'
 import * as surveyQuestions from './constants'
 import ChecboxFormGroup from '../FormGroup/CheckboxFormGroup'
+import './SurveyForm.css'
 
 class SurveyForm extends React.Component {
   componentWillMount () {
@@ -56,6 +57,56 @@ class SurveyForm extends React.Component {
               <RadioButtonFormGroup className='col-md-6'
                 question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_SUPPLY_CHAIN_ORIGIN}
                 options={this.props.data.technologyConstructionSupplyChainOrigin} />
+            </div>
+            <hr />
+            <div className='row mb-4'>
+              <CheckboxFormGroup className='col-md-6'
+                question={surveyQuestions.CONSTRUCTION_PRODUCT_TYPE}
+                options={this.props.data.constructionProductType} />
+              <TextFormGroup className='col-md-6'
+                question={surveyQuestions.APPLIED_TECHNOLOGY_CONSTRUCTION} />
+            </div>
+            <div className='row mb-4'>
+              <TextFormGroup className='col-md-6'
+                question={surveyQuestions.FIRST_APPLIED_PR0JECT} />
+              <TextFormGroup className='col-md-6'
+                question={surveyQuestions.FIRST_APPLIED_PROJECT_DATE} />
+            </div>
+            <div className='row mb-4'>
+              <RadioButtonFormGroup className='col-md-6'
+                question={surveyQuestions.FIRST_APPLIED_PROJECT_VALUE}
+                options={this.props.data.technologyConstructionStage} />
+              <CheckboxFormGroup className='col-md-6'
+                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_STAGE}
+                options={this.props.data.technologyConstructionStage} />
+            </div>
+            <div className='row mb-4'>
+              <RadioButtonFormGroup className='col-md-6'
+                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_TYPE}
+                options={this.props.data.technologyConstructionType} />
+              <RadioButtonFormGroup className='col-md-6'
+                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_ORIGIN}
+                options={this.props.data.technologyConstructionOrigin} />
+            </div>
+            <div className='row mb-4'>
+              <RadioButtonFormGroup className='col-md-6'
+                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_OWNER}
+                options={this.props.data.technologyConstructionOwner} />
+              <RadioButtonFormGroup className='col-md-6'
+                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_CATEGORY}
+                options={this.props.data.technologyConstructionCategory} />
+            </div>
+            <div className='row mb-4'>
+              <RadioButtonFormGroup className='col-md-6'
+                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_PRIMARY_TYPE}
+                options={this.props.data.technologyConstructionPrimaryType} />
+              <RadioButtonFormGroup className='col-md-6'
+                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_BENEFIT}
+                options={this.props.data.technologyConstructionBenefit} />
+            </div>
+            <div className='row mb-4'>
+              <TextFormGroup className='col-md-6'
+                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_ALL_BENEFITS} />
             </div>
             <div className='row mb-4'>
               <RadioButtonFormGroup className='col-md-6'
