@@ -1,15 +1,16 @@
-import { Field, reduxForm } from 'redux-form'
+import { reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import Radio from '@material-ui/core/Radio'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import FormGroup from 'components/FormGroup'
-import RadioButtonGroup from 'components/Fields/RadioButtonGroup'
+import RadioButtonFormGroup from 'components/FormGroup/RadioButtonFormGroup'
+import TextFormGroup from 'components/FormGroup/TextFormGroup'
+import CheckboxFormGroup from 'components/FormGroup/CheckboxFormGroup'
 
 const QUESTION_1 = 'Apa nama perusahaan tempat anda bekerja?'
 const QUESTION_2 = 'Dimana lokasi perusahaan tempat anda bekerja?'
 const QUESTION_3 = 'Termasuk dalam kategori apakah perusahaan tempat anda bekerja?'
+const QUESTION_3_OPTIONS = ['Owner', 'Konsultan', 'Kontraktor', 'Other']
 const QUESTION_4 = 'Termasuk dalam jenis bentuk badan usaha apakah perusahaan tempat anda bekerja?'
+const QUESTION_4_OPTIONS = ['Gedung', 'Infrastruktur', 'Industri', 'Perumahan', 'Jasa', 'Other']
 const QUESTION_5 = 'Apakah jenis produk konstruksi yang dihasilkan perusahaan tempat anda bekerja?'
 const QUESTION_6 = 'Teknologi apa yang sudah dan sedang diterapkan oleh perusahaan tempat anda bekerja dalam menghasilkan produk konstruksi?'
 
@@ -25,25 +26,19 @@ class SurveyForm extends React.Component {
           </div>
           <div className='container survey-form-content'>
             <div className='line-section'>Profil Perusahaan</div>
-            <div className='row mb-5'>
-              <FormGroup className='col-md-6' question={QUESTION_1} />
-              <FormGroup className='col-md-6' question={QUESTION_2} />
+            <div className='row mb-4'>
+              <TextFormGroup className='col-md-6' question={QUESTION_1} />
+              <TextFormGroup className='col-md-6' question={QUESTION_2} />
             </div>
-            <div className='row mb-5'>
-              <FormGroup className='col-md-6' question={QUESTION_3} />
-              <FormGroup className='col-md-6' question={QUESTION_4} />
+            <div className='row mb-4'>
+              <RadioButtonFormGroup className='col-md-6' question={QUESTION_3} options={QUESTION_3_OPTIONS} />
+              <CheckboxFormGroup className='col-md-6' question={QUESTION_4} options={QUESTION_4_OPTIONS} />
             </div>
-            <div className='row mb-5'>
-              <FormGroup className='col-md-6' question={QUESTION_5} />
-              <FormGroup className='col-md-6' question={QUESTION_6} />
+            <div className='row mb-4'>
+              <TextFormGroup className='col-md-6' question={QUESTION_5} />
+              <TextFormGroup className='col-md-6' question={QUESTION_6} />
             </div>
-            <div className='row mt-5 mb-5'>
-              <Field name='test' component={RadioButtonGroup}>
-                <FormControlLabel value='female' control={<Radio />} label='Female' />
-                <FormControlLabel value='male' control={<Radio />} label='Male' />
-                <FormControlLabel value='other' control={<Radio />} label='Other' />
-              </Field>
-            </div>
+            <div className='row mt-5 mb-5' />
             <div className='row'>
               <button type='submit'>Submit</button>
             </div>
