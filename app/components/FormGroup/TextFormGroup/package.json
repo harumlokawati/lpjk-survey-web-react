@@ -1,0 +1,5 @@
+{
+  "name": "TextFormGroup",
+  "private": true,
+  "main": "./TextFormGroup.js"
+}
