@@ -1,5 +1,10 @@
-import { reduxForm } from 'redux-form'
+import { Field, reduxForm } from 'redux-form'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import Radio from '@material-ui/core/Radio'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormGroup from 'components/FormGroup'
+import RadioButtonGroup from 'components/Fields/RadioButtonGroup'
 
 const QUESTION_1 = 'Apa nama perusahaan tempat anda bekerja?'
 const QUESTION_2 = 'Dimana lokasi perusahaan tempat anda bekerja?'
@@ -32,6 +37,13 @@ class SurveyForm extends React.Component {
               <FormGroup className='col-md-6' question={QUESTION_5} />
               <FormGroup className='col-md-6' question={QUESTION_6} />
             </div>
+            <div className='row mt-5 mb-5'>
+              <Field name='test' component={RadioButtonGroup}>
+                <FormControlLabel value='female' control={<Radio />} label='Female' />
+                <FormControlLabel value='male' control={<Radio />} label='Male' />
+                <FormControlLabel value='other' control={<Radio />} label='Other' />
+              </Field>
+            </div>
             <div className='row'>
               <button type='submit'>Submit</button>
             </div>
@@ -42,4 +54,15 @@ class SurveyForm extends React.Component {
   }
 }
 
-export default reduxForm({form: 'survey'})(SurveyForm)
+SurveyForm.propTypes = {
+  data: PropTypes.object
+}
+
+function mapStateToProps (state) {
+  return {
+    data: state.survey
+  }
+}
+
+const SurveyComponent = connect(mapStateToProps)(SurveyForm)
+export default reduxForm({form: 'survey'})(SurveyComponent)
