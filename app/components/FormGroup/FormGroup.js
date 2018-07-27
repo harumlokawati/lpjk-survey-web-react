@@ -6,7 +6,7 @@ class FormGroup extends React.Component {
     return (
       <div className={`form-group ${className}`}>
         <p>{question}</p>
-        <TextField />
+        <TextField question={question} />
       </div>
     )
   }
