@@ -4,3 +4,8 @@
   width: 100%;
   margin-left: 200px;
 }
+
+.page-row {
+  display: flex;
+  flex-wrap: wrap;
+}
