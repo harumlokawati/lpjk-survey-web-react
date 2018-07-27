@@ -4,7 +4,7 @@ import './Layout.css'
 class Layout extends React.Component {
   render () {
     return (
-      <div className='row'>
+      <div className='page-row'>
         <Sidebar />
         <div className='page-container'>
           {this.props.children}
