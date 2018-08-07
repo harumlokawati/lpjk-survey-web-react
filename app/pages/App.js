@@ -26,7 +26,6 @@ App.propTypes = {
 }
 
 function mapStateToProps (state) {
-  console.log(state)
   return {
     data: state.survey
   }

@@ -1,0 +1,22 @@
+.survey-form {
+    background-color: white;
+    margin: 5% 8%;
+    height: 100%;
+    padding: 3%;
+    border: 1px solid black;
+}
+
+.lpjk-logo {
+    display: block;
+    margin: 0 auto;
+}
+
+.survey-form-header h3 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.survey-form-content p {
+    margin: 0;
+}

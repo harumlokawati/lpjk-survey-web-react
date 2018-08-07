@@ -61,39 +61,39 @@ const reducer = (state = initialState, action) => {
     case SURVEY_SET_CONSTRUCTION_PRODUCT_TYPE:
       return {...state, constructionProductType: payload.constructionProductType}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_ASSESSMENT:
-      return {...state, constructionProductType: payload.technologyConstructionAssessment}
+      return {...state, technologyConstructionAssessment: payload.technologyConstructionAssessment}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_ASSESSMENT_METHOD:
-      return {...state, constructionProductType: payload.technologyConstructionAssessmentMethod}
+      return {...state, technologyConstructionAssessmentMethod: payload.technologyConstructionAssessmentMethod}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_BENEFIT:
-      return {...state, constructionProductType: payload.technologyConstructionBenefit}
+      return {...state, technologyConstructionBenefit: payload.technologyConstructionBenefit}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_CATEGORY:
-      return {...state, constructionProductType: payload.technologyConstructionCategory}
+      return {...state, technologyConstructionCategory: payload.technologyConstructionCategory}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_COST:
-      return {...state, constructionProductType: payload.technologyConstructionCost}
+      return {...state, technologyConstructionCost: payload.technologyConstructionCost}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_HUMAN_RESOURCE:
-      return {...state, constructionProductType: payload.technologyConstructionHumanResource}
+      return {...state, technologyConstructionHumanResource: payload.technologyConstructionHumanResource}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_INOVATION_CATEGORY:
-      return {...state, constructionProductType: payload.technologyConstructionInovationCategory}
+      return {...state, technologyConstructionInovationCategory: payload.technologyConstructionInovationCategory}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_INOVATION_ORIGIN:
-      return {...state, constructionProductType: payload.technologyConstructionInovationOrigin}
+      return {...state, technologyConstructionInovationOrigin: payload.technologyConstructionInovationOrigin}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_OBSTACLE:
-      return {...state, constructionProductType: payload.technologyConstructionObstacle}
+      return {...state, technologyConstructionObstacle: payload.technologyConstructionObstacle}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_ORIGIN:
-      return {...state, constructionProductType: payload.technologyConstructionOrigin}
+      return {...state, technologyConstructionOrigin: payload.technologyConstructionOrigin}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_OWNER:
-      return {...state, constructionProductType: payload.technologyConstructionOwner}
+      return {...state, technologyConstructionOwner: payload.technologyConstructionOwner}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_PRIMARY_TYPE:
-      return {...state, constructionProductType: payload.technologyConstructionPrimaryType}
+      return {...state, technologyConstructionPrimaryType: payload.technologyConstructionPrimaryType}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_STAGE:
-      return {...state, constructionProductType: payload.technologyConstructionStage}
+      return {...state, technologyConstructionStage: payload.technologyConstructionStage}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUCCESS_FACTOR:
-      return {...state, constructionProductType: payload.technologyConstructionSuccessFactor}
+      return {...state, technologyConstructionSuccessFactor: payload.technologyConstructionSuccessFactor}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUPPLY_CHAIN:
-      return {...state, constructionProductType: payload.technologyConstructionSupplyChain}
+      return {...state, technologyConstructionSupplyChain: payload.technologyConstructionSupplyChain}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUPPLY_CHAIN_ORIGIN:
-      return {...state, constructionProductType: payload.technologyConstructionSupplyChainOrigin}
+      return {...state, technologyConstructionSupplyChainOrigin: payload.technologyConstructionSupplyChainOrigin}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_TYPE:
-      return {...state, constructionProductType: payload.technologyConstructionType}
+      return {...state, technologyConstructionType: payload.technologyConstructionType}
     default:
       return {...state}
   }
