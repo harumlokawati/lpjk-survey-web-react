@@ -5,13 +5,8 @@ import RadioButtonFormGroup from 'components/FormGroup/RadioButtonFormGroup'
 import TextFormGroup from 'components/FormGroup/TextFormGroup'
 import CheckboxFormGroup from 'components/FormGroup/CheckboxFormGroup'
 import { pageRequest } from 'actions/survey'
-
-const QUESTION_1 = 'Apa nama perusahaan tempat anda bekerja?'
-const QUESTION_2 = 'Dimana lokasi perusahaan tempat anda bekerja?'
-const QUESTION_3 = 'Termasuk dalam kategori apakah perusahaan tempat anda bekerja?'
-const QUESTION_4 = 'Termasuk dalam jenis bentuk badan usaha apakah perusahaan tempat anda bekerja?'
-const QUESTION_5 = 'Apakah jenis produk konstruksi yang dihasilkan perusahaan tempat anda bekerja?'
-const QUESTION_6 = 'Teknologi apa yang sudah dan sedang diterapkan oleh perusahaan tempat anda bekerja dalam menghasilkan produk konstruksi?'
+import * as surveyQuestions from './constants'
+import ChecboxFormGroup from '../FormGroup/CheckboxFormGroup'
 
 class SurveyForm extends React.Component {
   componentWillMount () {
@@ -29,19 +24,54 @@ class SurveyForm extends React.Component {
             <h3>Survey Penelitian Gambaran Teknologi Konstruksi Di Indonesia</h3>
           </div>
           <div className='container survey-form-content'>
-            <div className='line-section'>Profil Perusahaan</div>
             <div className='row mb-4'>
-              <TextFormGroup className='col-md-6' question={QUESTION_1} />
-              <TextFormGroup className='col-md-6' question={QUESTION_2} />
+              <CheckboxFormGroup className='col-md-6'
+                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_COST}
+                options={this.props.data.technologyConstructionCost} />
             </div>
             <div className='row mb-4'>
-              <RadioButtonFormGroup className='col-md-6' question={QUESTION_3} options={this.props.data.companyCategory} />
-              <CheckboxFormGroup className='col-md-6' question={QUESTION_4} options={this.props.data.companyType} />
+              <RadioButtonFormGroup className='col-md-6'
+                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_SUCCESS_FACTOR}
+                options={this.props.data.technologyConstructionSuccessFactor} />
+              <TextFormGroup className='col-md-6'
+                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_ALL_SUCCESS_FACTORS} />
             </div>
             <div className='row mb-4'>
-              <CheckboxFormGroup className='col-md-6' question={QUESTION_5} options={this.props.data.constructionProductType} />
-              <TextFormGroup className='col-md-6' question={QUESTION_6} />
+              <RadioButtonFormGroup className='col-md-6'
+                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_OBSTACLE}
+                options={this.props.data.technologyConstructionObstacle} />
+              <TextFormGroup className='col-md-6'
+                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_ALL_OBSTACLES} />
             </div>
+            <div className='row mb-4'>
+              <ChecboxFormGroup className='col-md-6'
+                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_HUMAN_RESOURCE}
+                options={this.props.data.technologyConstructionHumanResource} />
+              {/* TODO: Pada penggunaan teknologi tersebut, teknologi lain apakah yang mendukung penggunaannya */}
+            </div>
+            <div className='row mb-4'>
+              <RadioButtonFormGroup className='col-md-6'
+                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_SUPPLY_CHAIN}
+                options={this.props.data.technologyConstructionSupplyChain} />
+              <RadioButtonFormGroup className='col-md-6'
+                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_SUPPLY_CHAIN_ORIGIN}
+                options={this.props.data.technologyConstructionSupplyChainOrigin} />
+            </div>
+            <div className='row mb-4'>
+              <RadioButtonFormGroup className='col-md-6'
+                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_INOVATION_ORIGIN}
+                options={this.props.data.technologyConstructionInovationOrigin} />
+              <RadioButtonFormGroup className='col-md-6'
+                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_INOVATION_CATEGORY}
+                options={this.props.data.technologyConstructionInovationCategory} />
+            </div>
+            <div className='row mb-4'>
+              <RadioButtonFormGroup className='col-md-6'
+                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_ASSESSTMENT}
+                options={this.props.data.technologyConstructionAssessment} />
+              {/* TODO: Berdasarkan daur hidup teknologi terkait dengan tingat kinerja dan berjalannya waktu, berada pada tingkat manakah teknologi tersebut? */}
+            </div>
+
             <div className='row'>
               <button type='submit'>Submit</button>
             </div>
