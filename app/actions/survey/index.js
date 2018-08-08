@@ -3,14 +3,15 @@ import {
   SURVEY_SET_COMPANY_CATEGORY,
   SURVEY_SET_COMPANY_TYPE,
   SURVEY_SET_CONSTRUCTION_PRODUCT_TYPE,
+  SURVEY_SET_CONSTRUCTION_PROJECT_COST,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_ASSESSMENT,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_ASSESSMENT_METHOD,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_BENEFIT,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_CATEGORY,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_COST,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_HUMAN_RESOURCE,
-  SURVEY_SET_TECHNOLOGY_CONSTRUCTION_INOVATION_CATEGORY,
-  SURVEY_SET_TECHNOLOGY_CONSTRUCTION_INOVATION_ORIGIN,
+  SURVEY_SET_TECHNOLOGY_CONSTRUCTION_INNOVATION_CATEGORY,
+  SURVEY_SET_TECHNOLOGY_CONSTRUCTION_INNOVATION_ORIGIN,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_OBSTACLE,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_ORIGIN,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_OWNER,
@@ -19,7 +20,9 @@ import {
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUCCESS_FACTOR,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUPPLY_CHAIN,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUPPLY_CHAIN_ORIGIN,
-  SURVEY_SET_TECHNOLOGY_CONSTRUCTION_TYPE
+  SURVEY_SET_TECHNOLOGY_CONSTRUCTION_TYPE,
+  SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUPPORT,
+  SURVEY_SET_TECHNOLOGY_CONSTRUCTION_LEVEL
 } from './constants'
 
 export function pageRequest () {
@@ -62,12 +65,12 @@ export function setTechnologyConstructionHumanResource (technologyConstructionHu
   return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_HUMAN_RESOURCE, payload: {technologyConstructionHumanResource}}
 }
 
-export function setTechnologyConstructionInovationCategory (technologyConstructionInovationCategory) {
-  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_INOVATION_CATEGORY, payload: {technologyConstructionInovationCategory}}
+export function setTechnologyConstructionInnovationCategory (technologyConstructionInnovationCategory) {
+  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_INNOVATION_CATEGORY, payload: {technologyConstructionInnovationCategory}}
 }
 
-export function setTechnologyConstructionInovationOrigin (technologyConstructionInovationOrigin) {
-  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_INOVATION_ORIGIN, payload: {technologyConstructionInovationOrigin}}
+export function setTechnologyConstructionInnovationOrigin (technologyConstructionInnovationOrigin) {
+  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_INNOVATION_ORIGIN, payload: {technologyConstructionInnovationOrigin}}
 }
 
 export function setTechnologyConstructionObstacle (technologyConstructionObstacle) {
@@ -107,4 +110,16 @@ export function setTechnologyConstructionSupplyChainOrigin (technologyConstructi
 
 export function setTechnologyConstructionType (technologyConstructionType) {
   return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_TYPE, payload: {technologyConstructionType}}
+}
+
+export function setConstructionProjectCost (constructionProjectCost) {
+  return {type: SURVEY_SET_CONSTRUCTION_PROJECT_COST, payload: {constructionProjectCost}}
+}
+
+export function setTechnologyConstructionSupport (technologyConstructionSupport) {
+  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUPPORT, payload: {technologyConstructionSupport}}
+}
+
+export function setTechnologyConstructionLevel (technologyConstructionLevel) {
+  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_LEVEL, payload: {technologyConstructionLevel}}
 }
