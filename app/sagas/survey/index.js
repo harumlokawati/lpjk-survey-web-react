@@ -12,7 +12,6 @@ function * pageRequest (action) {
     let constructionProductTypes = responseSurvey.data.construction_product_types
     let constructionProjectCosts = responseSurvey.data.construction_project_costs
     let technologyConstructionAssessments = responseSurvey.data.technology_construction_assessments
-    let technologyConstructionAssessmentMethods = responseSurvey.data.technology_construction_assessments_methods
     let technologyConstructionBenefits = responseSurvey.data.technology_construction_benefits
     let technologyConstructionCategories = responseSurvey.data.technology_construction_categories
     let technologyConstructionCosts = responseSurvey.data.technology_construction_costs
@@ -36,7 +35,6 @@ function * pageRequest (action) {
     yield put(actSurvey.setConstructionProductType(constructionProductTypes))
     yield put(actSurvey.setConstructionProjectCost(constructionProjectCosts))
     yield put(actSurvey.setTechnologyConstructionAssessment(technologyConstructionAssessments))
-    yield put(actSurvey.setTechnologyConstructionAssessmentMethod(technologyConstructionAssessmentMethods))
     yield put(actSurvey.setTechnologyConstructionBenefit(technologyConstructionBenefits))
     yield put(actSurvey.setTechnologyConstructionCategory(technologyConstructionCategories))
     yield put(actSurvey.setTechnologyConstructionCost(technologyConstructionCosts))

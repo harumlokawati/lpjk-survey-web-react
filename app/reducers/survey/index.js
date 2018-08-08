@@ -6,7 +6,6 @@ import {
   SURVEY_SET_CONSTRUCTION_PRODUCT_TYPE,
   SURVEY_SET_CONSTRUCTION_PROJECT_COST,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_ASSESSMENT,
-  SURVEY_SET_TECHNOLOGY_CONSTRUCTION_ASSESSMENT_METHOD,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_BENEFIT,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_CATEGORY,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_COST,
@@ -32,7 +31,6 @@ let initialState = {
   constructionProductType: {},
   constructionProjectCost: {},
   technologyConstructionAssessment: {},
-  technologyConstructionAssessmentMethod: {},
   technologyConstructionBenefit: {},
   technologyConstructionCategory: {},
   technologyConstructionCost: {},
@@ -70,8 +68,6 @@ const reducer = (state = initialState, action) => {
       return {...state, constructionProjectCost: payload.constructionProjectCost}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_ASSESSMENT:
       return {...state, technologyConstructionAssessment: payload.technologyConstructionAssessment}
-    case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_ASSESSMENT_METHOD:
-      return {...state, technologyConstructionAssessmentMethod: payload.technologyConstructionAssessmentMethod}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_BENEFIT:
       return {...state, technologyConstructionBenefit: payload.technologyConstructionBenefit}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_CATEGORY:

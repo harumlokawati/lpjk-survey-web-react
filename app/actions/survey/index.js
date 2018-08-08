@@ -5,7 +5,6 @@ import {
   SURVEY_SET_CONSTRUCTION_PRODUCT_TYPE,
   SURVEY_SET_CONSTRUCTION_PROJECT_COST,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_ASSESSMENT,
-  SURVEY_SET_TECHNOLOGY_CONSTRUCTION_ASSESSMENT_METHOD,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_BENEFIT,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_CATEGORY,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_COST,
@@ -43,10 +42,6 @@ export function setConstructionProductType (constructionProductType) {
 
 export function setTechnologyConstructionAssessment (technologyConstructionAssessment) {
   return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_ASSESSMENT, payload: {technologyConstructionAssessment}}
-}
-
-export function setTechnologyConstructionAssessmentMethod (technologyConstructionAssessmentMethod) {
-  return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_ASSESSMENT_METHOD, payload: {technologyConstructionAssessmentMethod}}
 }
 
 export function setTechnologyConstructionBenefit (technologyConstructionBenefit) {
