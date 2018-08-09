@@ -1,13 +1,10 @@
 import './Survey.css'
-import Layout from 'components/Layout'
 import SurveyForm from 'components/SurveyForm'
 
 class Survey extends React.Component {
   render () {
     return (
-      <Layout>
-        <SurveyForm onSubmit={this._onSubmitSurveyForm} />
-      </Layout>
+      <SurveyForm onSubmit={this._onSubmitSurveyForm} />
     )
   }
 

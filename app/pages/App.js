@@ -3,15 +3,13 @@ import {hot} from 'react-hot-loader'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { pageRequest } from 'actions/survey/index'
-import Survey from 'pages/Survey'
+import Layout from 'components/Layout'
 
 class App extends React.Component {
   render () {
+    const {children} = this.props
     return (
-      // <div>
-      //  <button onClick={() => this._onClickRunApi()}>call api</button>
-      // </div>
-      <Survey />
+      <Layout children={children} />
     )
   }
 

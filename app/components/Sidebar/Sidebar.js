@@ -10,7 +10,7 @@ class Sidebar extends React.Component {
             <Link to='/dashboard'>Dashboard</Link>
             <Link to='/survey'>Survey</Link>
             <Link to='/query'>Query</Link>
-            <Link to='/company'>Company Profile</Link>
+            <Link to='/company_profile'>Company Profile</Link>
           </div>
         </nav>
       </div>
