@@ -21,7 +21,7 @@ class SurveyForm extends React.Component {
       <form onSubmit={handleSubmit}>
         {data && <div className='survey-form'>
           <div className='container survey-form-header'>
-            <img className='lpjk-logo' src='http://lpjk.org/template/blue/images/logo_lpjkn_mainpage.jpg' />
+            <img className='lpjk-logo img-fluid' src='http://lpjk.org/template/blue/images/logo_lpjkn_mainpage.jpg' />
             <h3>Survey Penelitian Gambaran Teknologi Konstruksi Di Indonesia</h3>
           </div>
           <div className='container survey-form-content'>
@@ -31,13 +31,16 @@ class SurveyForm extends React.Component {
                 question={surveyQuestions.CONSTRUCTION_PRODUCT_TYPE}
                 options={this.props.data.constructionProductType} />
               <TextFormGroup className='col-md-6'
-                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_APPLIED} />
+                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_APPLIED}
+                placeholder='Answer' />
             </div>
             <div className='row mb-4'>
               <TextFormGroup className='col-md-6'
-                question={surveyQuestions.CONSTRUCTION_PROJECT} />
+                question={surveyQuestions.CONSTRUCTION_PROJECT}
+                placeholder='Answer' />
               <TextFormGroup className='col-md-6'
-                question={surveyQuestions.CONSTRUCTION_PROJECT_DATE} />
+                question={surveyQuestions.CONSTRUCTION_PROJECT_DATE}
+                placeholder='Answer' />
             </div>
             <div className='row mb-4'>
               <RadioButtonFormGroup className='col-md-6'
@@ -73,7 +76,8 @@ class SurveyForm extends React.Component {
             </div>
             <div className='row mb-4'>
               <TextFormGroup className='col-md-6'
-                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_ALL_BENEFITS} />
+                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_ALL_BENEFITS}
+                placeholder='Answer' />
               <CheckboxFormGroup className='col-md-6'
                 question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_COST}
                 options={this.props.data.technologyConstructionCost} />
@@ -83,14 +87,16 @@ class SurveyForm extends React.Component {
                 question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_SUCCESS_FACTOR}
                 options={this.props.data.technologyConstructionSuccessFactor} />
               <TextFormGroup className='col-md-6'
-                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_ALL_SUCCESS_FACTORS} />
+                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_ALL_SUCCESS_FACTORS}
+                placeholder='Answer' />
             </div>
             <div className='row mb-4'>
               <RadioButtonFormGroup className='col-md-6'
                 question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_OBSTACLE}
                 options={this.props.data.technologyConstructionObstacle} />
               <TextFormGroup className='col-md-6'
-                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_ALL_OBSTACLES} />
+                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_ALL_OBSTACLES}
+                placeholder='Answer' />
             </div>
             <div className='row mb-4'>
               <CheckboxFormGroup className='col-md-6'
