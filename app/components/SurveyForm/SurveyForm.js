@@ -6,7 +6,7 @@ import TextFormGroup from 'components/FormGroup/TextFormGroup'
 import CheckboxFormGroup from 'components/FormGroup/CheckboxFormGroup'
 import { pageRequest } from 'actions/survey'
 import * as surveyQuestions from './constants'
-import ChecboxFormGroup from '../FormGroup/CheckboxFormGroup'
+import Button from '@material-ui/core/Button'
 import './SurveyForm.css'
 
 class SurveyForm extends React.Component {
@@ -93,10 +93,10 @@ class SurveyForm extends React.Component {
                 question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_ALL_OBSTACLES} />
             </div>
             <div className='row mb-4'>
-              <ChecboxFormGroup className='col-md-6'
+              <CheckboxFormGroup className='col-md-6'
                 question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_HUMAN_RESOURCE}
                 options={this.props.data.technologyConstructionHumanResource} />
-              <ChecboxFormGroup className='col-md-6'
+              <CheckboxFormGroup className='col-md-6'
                 question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_SUPPORT}
                 options={this.props.data.technologyConstructionSupport} />
             </div>
@@ -125,7 +125,9 @@ class SurveyForm extends React.Component {
                 options={this.props.data.technologyConstructionLevel} />
             </div>
             <div className='row'>
-              <button type='submit'>Submit</button>
+              <Button variant='contained' size='large' color='primary' aria-label='Submit' type='submit'>
+                Submit
+              </Button>
             </div>
           </div>
         </div>}
