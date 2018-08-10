@@ -3,9 +3,9 @@ import { Field } from 'redux-form'
 
 class TextField extends React.Component {
   render () {
-    const {question, placeholder} = this.props
+    const {question, placeholder, className} = this.props
     return (
-      <div className='wrapper'>
+      <div className={`${className} wrapper`}>
         <label htmlFor='text-field' className='text-field'>
           <Field name={question}
             component='input'
