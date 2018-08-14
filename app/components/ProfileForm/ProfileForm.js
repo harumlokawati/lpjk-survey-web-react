@@ -5,8 +5,8 @@ import PropTypes from 'prop-types'
 import RadioButtonFormGroup from 'components/FormGroup/RadioButtonFormGroup'
 import { pageRequest } from 'actions/survey'
 import * as profileQuestions from './constants'
-import TextField from '../Fields/TextField'
 import Button from '@material-ui/core/Button'
+import BorderedTextField from '../Fields/BorderedTextField'
 
 class ProfileForm extends React.Component {
   componentWillMount () {
@@ -31,15 +31,15 @@ class ProfileForm extends React.Component {
     const data = true
     return (
       <form className='profile-form' onSubmit={handleSubmit}>
-        {data && <div className='col-md-8'>
+        {data && <div className='col-md-6'>
           <div className='profile-form-header'>
             <h3>Profil Perusahaan</h3>
           </div>
           <div className='profile-form-content'>
             <hr />
             <div className='row mb-4'>
-              <TextField className='col-md-6' question='company_name' placeholder='Nama' />
-              <TextField className='col-md-6' question='company_location' placeholder='Location' />
+              <BorderedTextField className='col-md-6' question='name' placeholder='Nama' />
+              <BorderedTextField className='col-md-6' question='location' placeholder='Lokasi' />
             </div>
             <div className='row mb-4'>
               <RadioButtonFormGroup className='col-md-6'
@@ -50,7 +50,7 @@ class ProfileForm extends React.Component {
                 options={COMPANY_TYPE_OPTIONS} />
             </div>
             <div className='float-right'>
-              <Button variant='contained' size='large' color='primary' aria-label='Save' type='submit'>
+              <Button variant='contained' size='medium' color='primary' aria-label='Save' type='submit'>
                 Save
               </Button>
             </div>
