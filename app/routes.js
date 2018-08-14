@@ -15,7 +15,7 @@ module.exports = (store) => {
         <Router history={history}>
           <Route component={App}>
             <Route path='/survey' component={Survey} />
-            <Route path='/company_profile' component={CompanyProfile} />
+            <Route path='/company-profile' component={CompanyProfile} />
           </Route>
         </Router>
       </Provider>
