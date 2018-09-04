@@ -6,6 +6,7 @@ import App from './pages/App'
 
 import Survey from './pages/Survey'
 import CompanyProfile from './pages/Company/Profile'
+import Login from './pages/Login'
 
 module.exports = (store) => {
   const history = syncHistoryWithStore(browserHistory, store)
@@ -14,6 +15,7 @@ module.exports = (store) => {
       <Provider store={store}>
         <Router history={history}>
           <Route component={App}>
+            <Route path='/' component={Login} />
             <Route path='/survey' component={Survey} />
             <Route path='/company-profile' component={CompanyProfile} />
           </Route>

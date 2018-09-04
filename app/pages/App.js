@@ -4,12 +4,14 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { pageRequest } from 'actions/survey/index'
 import Layout from 'components/Layout'
+import Login from './Login'
 
 class App extends React.Component {
   render () {
     const {children} = this.props
     return (
-      <Layout children={children} />
+      <Login />
+      // <Layout children={children} />
     )
   }
 
