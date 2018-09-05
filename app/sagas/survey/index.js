@@ -1,5 +1,5 @@
 import { put, call, takeLatest } from 'redux-saga/effects'
-import { SURVEY_PAGE_REQUEST } from 'actions/survey/constants'
+import { SURVEY_PAGE_REQUEST, SURVEY_ON_CLICK_SUBMIT_SURVEY } from 'actions/survey/constants'
 import * as apiSurvey from 'api/survey/index'
 import * as actSurvey from 'actions/survey/index'
 
@@ -59,6 +59,18 @@ function * pageRequest (action) {
   }
 }
 
+
+function * onClickSubmitSurvey (request) {
+  try {
+    console.log(request.payload)
+  } catch (e) {
+    console.log(e)
+  } finally {
+    console.log('success')
+  }
+}
+
 export default function * surveySaga () {
   yield takeLatest(SURVEY_PAGE_REQUEST, pageRequest)
+  yield takeLatest(SURVEY_ON_CLICK_SUBMIT_SURVEY, onClickSubmitSurvey)
 }

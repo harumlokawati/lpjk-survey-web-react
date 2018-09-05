@@ -21,7 +21,8 @@ import {
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUPPLY_CHAIN_ORIGIN,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_TYPE,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUPPORT,
-  SURVEY_SET_TECHNOLOGY_CONSTRUCTION_LEVEL
+  SURVEY_SET_TECHNOLOGY_CONSTRUCTION_LEVEL,
+  SURVEY_ON_CLICK_SUBMIT_SURVEY
 } from './constants'
 
 export function pageRequest () {
@@ -117,4 +118,8 @@ export function setTechnologyConstructionSupport (technologyConstructionSupport)
 
 export function setTechnologyConstructionLevel (technologyConstructionLevel) {
   return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_LEVEL, payload: {technologyConstructionLevel}}
+}
+
+export function onClickSubmitSurvey (surveyValues) {
+  return {type: SURVEY_ON_CLICK_SUBMIT_SURVEY, payload: {surveyValues}}
 }
