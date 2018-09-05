@@ -7,7 +7,7 @@ class TextField extends React.Component {
     return (
       <div className={`${className} wrapper`}>
         <label htmlFor='text-field' className='text-field'>
-          <Field name={question}
+          <Field name={question.key}
             component='input'
             type='text'
             placeholder={placeholder} />

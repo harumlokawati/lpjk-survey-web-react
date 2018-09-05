@@ -5,7 +5,7 @@ class TextFormGroup extends React.Component {
     let {question, placeholder, className} = this.props
     return (
       <div className={`form-group ${className}`}>
-        <p>{question}</p>
+        <p>{question.question}</p>
         <TextField question={question} placeholder={placeholder} />
       </div>
     )

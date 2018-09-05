@@ -27,9 +27,9 @@ class CheckboxFormGroup extends React.Component {
 
     return (
       <div className={`form-group ${className}`}>
-        <p>{question}</p>
+        <p>{question.question}</p>
         <FormGroup>
-          <FieldArray name={question} component={renderOptions} options={options} />
+          <FieldArray name={question.key} component={renderOptions} options={options} />
         </FormGroup>
       </div>
     )
