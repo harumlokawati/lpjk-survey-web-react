@@ -1,7 +1,7 @@
 import * as api from '../constant'
 
-export function getSurveyData () {
-  return axios.get(api.SURVEY_GET_FORM_URL)
+export function registerUser (request) {
+  return axios.post(api.REGISTER_URL, request)
     .then(res => {
       return Promise.resolve(res)
     })
@@ -10,8 +10,8 @@ export function getSurveyData () {
     })
 }
 
-export function submitSurveyData (request) {
-  return axios.post('url://', request)
+export function loginUser (request) {
+  return axios.post(api.LOGIN_URL, request)
     .then(res => {
       return Promise.resolve(res)
     })
