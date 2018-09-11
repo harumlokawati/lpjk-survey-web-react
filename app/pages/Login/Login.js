@@ -10,7 +10,7 @@ class Login extends React.Component {
     )
   }
 
-  _onSubmitLoginForm (values) {
+  _onSubmitLoginForm = (values) => {
     // TODO: handle submit form
     console.log(values)
   }

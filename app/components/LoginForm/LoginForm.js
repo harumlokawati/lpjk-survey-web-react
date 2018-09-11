@@ -1,8 +1,21 @@
 import './LoginForm.css'
+import { reduxForm, Field } from 'redux-form'
 import Button from '@material-ui/core/Button'
 import Input from '@material-ui/core/Input'
 
 class LoginForm extends React.Component {
+  renderInputField = ({input, label, type, className}) => (
+    <Input
+      placeholder={label}
+      className={className}
+      type={type}
+      autoComplete='off'
+      inputProps={{
+        'aria-label': 'Description'
+      }}
+      {...input}
+    />)
+
   render () {
     let {handleSubmit} = this.props
     return (
@@ -12,27 +25,13 @@ class LoginForm extends React.Component {
           <h4 className='text-white'>Selamat Datang di LPJK</h4>
           <p className='text-white'>Masuk dengan Email Anda</p>
         </div>
-        <Input
-          placeholder='Email'
-          className='email-input'
-          type='email'
-          autoComplete='off'
-          inputProps={{
-            'aria-label': 'Description'
-          }}
-        />
-        <Input
-          placeholder='Password'
-          className='password-input'
-          type='password'
-          autoComplete='off'
-          inputProps={{
-            'aria-label': 'Description'
-          }}
-        />
+        <Field name='email' component={this.renderInputField} label='Email' type='email' className='email-input' />
+        <Field name='password' component={this.renderInputField} label='Password' type='password'
+          className='password-input' />
         <Button
           variant='contained'
-          className='login-button float-right mt-5'>
+          className='login-button float-right mt-5'
+          type='submit'>
           Login
         </Button>
       </form>
@@ -40,4 +39,4 @@ class LoginForm extends React.Component {
   }
 }
 
-export default LoginForm
+export default reduxForm({form: 'login'})(LoginForm)
