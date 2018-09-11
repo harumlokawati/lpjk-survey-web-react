@@ -1,0 +1,5 @@
+{
+  "name": "BorderedTextField",
+  "private": true,
+  "main": "./BorderedTextField.js"
+}

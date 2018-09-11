@@ -1,0 +1,5 @@
+{
+  "name": "AuthTextField",
+  "private": true,
+  "main": "./AuthTextField.js"
+}
