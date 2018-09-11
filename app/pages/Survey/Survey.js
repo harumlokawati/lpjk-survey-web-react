@@ -6,7 +6,7 @@ import { onClickSubmitSurvey } from 'actions/survey'
 class Survey extends React.Component {
   render () {
     return (
-      <SurveyForm onSubmit={this._onSubmitSurveyForm}/>
+      <SurveyForm onSubmit={this._onSubmitSurveyForm} />
     )
   }
 
