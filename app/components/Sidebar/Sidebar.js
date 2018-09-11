@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import './Sidebar.css'
 
 class Sidebar extends React.Component {
@@ -6,9 +7,10 @@ class Sidebar extends React.Component {
       <div className='wrapper'>
         <nav className='sidebar' role='navigation'>
           <div className='sidebar-content'>
-            <a href='#'>Dashboard</a>
-            <a href='#'>Survey</a>
-            <a href='#'>Query</a>
+            <Link to='/dashboard'>Dashboard</Link>
+            <Link to='/survey'>Survey</Link>
+            <Link to='/query'>Query</Link>
+            <Link to='/company-profile'>Company Profile</Link>
           </div>
         </nav>
       </div>

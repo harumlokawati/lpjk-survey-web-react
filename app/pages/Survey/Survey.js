@@ -1,20 +1,22 @@
+import { connect } from 'react-redux'
 import './Survey.css'
-import Layout from 'components/Layout'
 import SurveyForm from 'components/SurveyForm'
+import { onClickSubmitSurvey } from 'actions/survey'
 
 class Survey extends React.Component {
   render () {
     return (
-      <Layout>
-        <SurveyForm onSubmit={this._onSubmitSurveyForm} />
-      </Layout>
+      <SurveyForm onSubmit={this._onSubmitSurveyForm}/>
     )
   }
 
-  _onSubmitSurveyForm (values) {
-    // TODO: handle submit form
-    console.log(values)
+  _onSubmitSurveyForm = (values) => {
+    this.props.dispatch(onClickSubmitSurvey(values))
   }
 }
 
-export default Survey
+function mapDispatchToProps (dispatch) {
+  return { dispatch }
+}
+
+export default connect(null, mapDispatchToProps)(Survey)

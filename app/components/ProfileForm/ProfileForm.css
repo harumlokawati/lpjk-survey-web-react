@@ -1,0 +1,13 @@
+.profile-form {
+  background-color: white;
+  height: 100%;
+  padding: 3%;
+}
+
+.profile-form-content hr {
+  margin-top: 0;
+}
+
+.profile-form-content p {
+  margin: 0;
+}

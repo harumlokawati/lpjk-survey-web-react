@@ -1,0 +1,5 @@
+{
+  "name": "ProfileForm",
+  "private": true,
+  "main": "./ProfileForm.js"
+}

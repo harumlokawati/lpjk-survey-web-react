@@ -9,8 +9,8 @@ class RadioButtonFormGroup extends React.Component {
     let {question, className, options} = this.props
     return (
       <div className={`form-group ${className}`}>
-        <p>{question}</p>
-        <Field name={question} component={RadioButtonGroup}>
+        <p>{question.question}</p>
+        <Field name={question.key} component={RadioButtonGroup}>
           {options.map(function (option, index) {
             return <FormControlLabel key={index} value={option.name} control={<Radio />} label={option.name} />
           })}

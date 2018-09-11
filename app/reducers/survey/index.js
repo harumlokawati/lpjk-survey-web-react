@@ -4,14 +4,14 @@ import {
   SURVEY_SET_COMPANY_CATEGORY,
   SURVEY_SET_COMPANY_TYPE,
   SURVEY_SET_CONSTRUCTION_PRODUCT_TYPE,
+  SURVEY_SET_CONSTRUCTION_PROJECT_COST,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_ASSESSMENT,
-  SURVEY_SET_TECHNOLOGY_CONSTRUCTION_ASSESSMENT_METHOD,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_BENEFIT,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_CATEGORY,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_COST,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_HUMAN_RESOURCE,
-  SURVEY_SET_TECHNOLOGY_CONSTRUCTION_INOVATION_CATEGORY,
-  SURVEY_SET_TECHNOLOGY_CONSTRUCTION_INOVATION_ORIGIN,
+  SURVEY_SET_TECHNOLOGY_CONSTRUCTION_INNOVATION_CATEGORY,
+  SURVEY_SET_TECHNOLOGY_CONSTRUCTION_INNOVATION_ORIGIN,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_OBSTACLE,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_ORIGIN,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_OWNER,
@@ -20,21 +20,23 @@ import {
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUCCESS_FACTOR,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUPPLY_CHAIN,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUPPLY_CHAIN_ORIGIN,
-  SURVEY_SET_TECHNOLOGY_CONSTRUCTION_TYPE
+  SURVEY_SET_TECHNOLOGY_CONSTRUCTION_TYPE,
+  SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUPPORT,
+  SURVEY_SET_TECHNOLOGY_CONSTRUCTION_LEVEL
 } from 'actions/survey/constants'
 
 let initialState = {
   companyCategory: {},
   companyType: {},
   constructionProductType: {},
+  constructionProjectCost: {},
   technologyConstructionAssessment: {},
-  technologyConstructionAssessmentMethod: {},
   technologyConstructionBenefit: {},
   technologyConstructionCategory: {},
   technologyConstructionCost: {},
   technologyConstructionHumanResource: {},
-  technologyConstructionInovationCategory: {},
-  technologyConstructionInovationOrigin: {},
+  technologyConstructionInnovationCategory: {},
+  technologyConstructionInnovationOrigin: {},
   technologyConstructionObstacle: {},
   technologyConstructionOrigin: {},
   technologyConstructionOwner: {},
@@ -43,7 +45,9 @@ let initialState = {
   technologyConstructionSuccessFactor: {},
   technologyConstructionSupplyChain: {},
   technologyConstructionSupplyChainOrigin: {},
-  technologyConstructionType: {}
+  technologyConstructionType: {},
+  technologyConstructionSupport: {},
+  technologyConstructionLevel: {}
 }
 
 const reducer = (state = initialState, action) => {
@@ -60,10 +64,10 @@ const reducer = (state = initialState, action) => {
       return {...state, companyType: payload.companyType}
     case SURVEY_SET_CONSTRUCTION_PRODUCT_TYPE:
       return {...state, constructionProductType: payload.constructionProductType}
+    case SURVEY_SET_CONSTRUCTION_PROJECT_COST:
+      return {...state, constructionProjectCost: payload.constructionProjectCost}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_ASSESSMENT:
       return {...state, technologyConstructionAssessment: payload.technologyConstructionAssessment}
-    case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_ASSESSMENT_METHOD:
-      return {...state, technologyConstructionAssessmentMethod: payload.technologyConstructionAssessmentMethod}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_BENEFIT:
       return {...state, technologyConstructionBenefit: payload.technologyConstructionBenefit}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_CATEGORY:
@@ -72,10 +76,10 @@ const reducer = (state = initialState, action) => {
       return {...state, technologyConstructionCost: payload.technologyConstructionCost}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_HUMAN_RESOURCE:
       return {...state, technologyConstructionHumanResource: payload.technologyConstructionHumanResource}
-    case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_INOVATION_CATEGORY:
-      return {...state, technologyConstructionInovationCategory: payload.technologyConstructionInovationCategory}
-    case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_INOVATION_ORIGIN:
-      return {...state, technologyConstructionInovationOrigin: payload.technologyConstructionInovationOrigin}
+    case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_INNOVATION_CATEGORY:
+      return {...state, technologyConstructionInnovationCategory: payload.technologyConstructionInnovationCategory}
+    case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_INNOVATION_ORIGIN:
+      return {...state, technologyConstructionInnovationOrigin: payload.technologyConstructionInnovationOrigin}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_OBSTACLE:
       return {...state, technologyConstructionObstacle: payload.technologyConstructionObstacle}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_ORIGIN:
@@ -94,6 +98,10 @@ const reducer = (state = initialState, action) => {
       return {...state, technologyConstructionSupplyChainOrigin: payload.technologyConstructionSupplyChainOrigin}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_TYPE:
       return {...state, technologyConstructionType: payload.technologyConstructionType}
+    case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUPPORT:
+      return {...state, technologyConstructionSupport: payload.technologyConstructionSupport}
+    case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_LEVEL:
+      return {...state, technologyConstructionLevel: payload.technologyConstructionLevel}
     default:
       return {...state}
   }
