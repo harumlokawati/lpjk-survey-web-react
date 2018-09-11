@@ -2,7 +2,7 @@ import './AuthTextField.css'
 
 class AuthTextField extends React.Component {
   render () {
-    let { className, label } = this.props
+    let { label } = this.props
     return (
       <label className='field a-field a-field_a1 page__field'>
         <input className='field__input' required />
