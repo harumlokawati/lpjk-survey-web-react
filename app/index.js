@@ -43,4 +43,4 @@ sagaMiddleware.run(surveySaga)
 sagaMiddleware.run(authSaga)
 
 const LPJKRoutes = require('./routes')(store)
-ReactDOM.render(<LPJKRoutes/>, document.getElementById('root'))
+ReactDOM.render(<LPJKRoutes />, document.getElementById('root'))
