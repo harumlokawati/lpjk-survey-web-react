@@ -14,6 +14,8 @@ function * onClickSubmitLogin (request) {
       }
     }
     const responseLogin = yield call(apiAuth.loginUser, user)
+
+    yield put(actAuth.setCompanyId(responseLogin.data.user.company_id))
     fillCredentialData(responseLogin.data)
   } catch (e) {
     console.log(e)

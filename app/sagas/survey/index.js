@@ -61,7 +61,7 @@ function * pageRequest (action) {
 
 function * onClickSubmitSurvey (request) {
   try {
-    let responseSurvey = yield call(apiSurvey.submitSurveyData(request.payload.surveyValues))
+    let responseSurvey = yield call(apiSurvey.submitSurveyData, request.payload.surveyValues)
     console.log(responseSurvey)
   } catch (e) {
     console.log(e)

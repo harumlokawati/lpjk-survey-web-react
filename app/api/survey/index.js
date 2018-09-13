@@ -13,7 +13,7 @@ export function getSurveyData () {
 }
 
 export function submitSurveyData (request) {
-  return axios.post('url://', request)
+  return axios.post(api.SURVEY_POST_FORM(request.companyId), request, generateRequestHeaders())
     .then(res => {
       return Promise.resolve(res)
     })

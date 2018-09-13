@@ -17,14 +17,16 @@ class Survey extends React.Component {
   }
 
   _onSubmitSurveyForm = (values) => {
+    values.companyId = this.props.companyId
     this.props.dispatch(onClickSubmitSurvey(values))
   }
 }
 
 function mapStateToProps (state) {
-  const { loggedIn } = state.app
+  const { loggedIn, companyId } = state.app
   return {
-    loggedIn: loggedIn
+    loggedIn: loggedIn,
+    companyId: companyId
   }
 }
 
