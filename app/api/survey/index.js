@@ -22,7 +22,6 @@ export function submitSurveyData (request) {
     })
 }
 
-
 function generateRequestHeaders () {
   cookiesData = !cookiesData ? Cookies.get('access_token') : cookiesData
   return {
