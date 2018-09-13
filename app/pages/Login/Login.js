@@ -1,5 +1,7 @@
 import './Login.css'
 import LoginForm from 'components/LoginForm'
+import { onClickSubmitLogin } from 'actions/auth/login'
+import { connect } from 'react-redux'
 
 class Login extends React.Component {
   render () {
@@ -11,9 +13,13 @@ class Login extends React.Component {
   }
 
   _onSubmitLoginForm = (values) => {
-    // TODO: handle submit form
-    console.log(values)
+    console.log('wkwk')
+    this.props.dispatch(onClickSubmitLogin(values))
   }
 }
 
-export default Login
+function mapDispatchToProps (dispatch) {
+  return { dispatch }
+}
+
+export default connect(null, mapDispatchToProps)(Login)

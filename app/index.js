@@ -8,15 +8,18 @@ import './styles/main.css'
 
 // Reducer
 import { reducer as formReducer } from 'redux-form'
+import { reducer as appReducer } from 'reducers'
 import { reducer as surveyReducer } from 'reducers/survey/index'
 
 // Saga
-import surveySaga from 'sagas/survey/index'
+import surveySaga from 'sagas/survey'
+import authSaga from 'sagas/auth'
 
 const sagaMiddleware = createSagaMiddleware()
 
 const reducer = {
   routing: routerReducer,
+  app: appReducer,
   survey: surveyReducer,
   form: formReducer
 }
@@ -29,6 +32,7 @@ const store = createStore(combineReducers(reducer),
 )
 
 sagaMiddleware.run(surveySaga)
+sagaMiddleware.run(authSaga)
 
 const LPJKRoutes = require('./routes')(store)
 ReactDOM.render(<LPJKRoutes />, document.getElementById('root'))
