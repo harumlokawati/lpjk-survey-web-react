@@ -1,10 +1,10 @@
-import { call, takeLatest } from 'redux-saga/effects'
+import { put, call, takeLatest } from 'redux-saga/effects'
 import { LOGIN_ON_CLICK_SUBMIT_LOGIN } from 'actions/auth/login/constants'
+import * as actAuth from 'actions/auth/login/index'
 import * as apiAuth from 'api/auth'
 import { browserHistory } from 'react-router'
 
 function * onClickSubmitLogin (request) {
-  let responseLogin
   try {
     const {email, password} = request.payload.loginValues
     const user = {
@@ -13,15 +13,18 @@ function * onClickSubmitLogin (request) {
         password: password
       }
     }
-    responseLogin = yield call(apiAuth.loginUser, user)
-    console.log(responseLogin)
+    const responseLogin = yield call(apiAuth.loginUser, user)
+    fillCredentialData(responseLogin.data)
   } catch (e) {
     console.log(e)
   } finally {
-    console.log('success')
-    Cookies.set('access_token', responseLogin.data.access_token)
+    yield put(actAuth.setIsLogin(true))
     browserHistory.push('/survey')
   }
+}
+
+function fillCredentialData (data) {
+  Cookies.set('access_token', data.access_token)
 }
 
 export default function * authSaga () {
