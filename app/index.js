@@ -12,6 +12,7 @@ import './styles/main.css'
 import { reducer as formReducer } from 'redux-form'
 import { reducer as appReducer } from 'reducers/index'
 import { reducer as surveyReducer } from 'reducers/survey/index'
+import { reducer as notificationReducer } from 'reducers/notification'
 
 // Saga
 import surveySaga from 'sagas/survey'
@@ -23,6 +24,7 @@ const reducer = {
   routing: routerReducer,
   app: appReducer,
   survey: surveyReducer,
+  notification: notificationReducer,
   form: formReducer
 }
 
