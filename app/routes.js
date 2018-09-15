@@ -2,11 +2,12 @@ import { Router, Route, browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { Provider } from 'react-redux'
 
-import App from './pages/App'
+import App from 'pages/App'
 
-import Survey from './pages/Survey'
-import CompanyProfile from './pages/Company/Profile'
-import Login from './pages/Login'
+import Survey from 'pages/Survey'
+import CompanyProfile from 'pages/Company/Profile'
+import Login from 'pages/Login'
+import Register from 'pages/Register'
 
 module.exports = (store) => {
   const history = syncHistoryWithStore(browserHistory, store)
@@ -14,7 +15,8 @@ module.exports = (store) => {
     return (
       <Provider store={store}>
         <Router history={history}>
-          <Route exact path='/' component={Login} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/register' component={Register} />
           <Route component={App}>
             <Route path='/survey' component={Survey} />
             <Route path='/company-profile' component={CompanyProfile} />

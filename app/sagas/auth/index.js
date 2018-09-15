@@ -1,5 +1,6 @@
 import { put, call, takeLatest } from 'redux-saga/effects'
 import { LOGIN_ON_CLICK_SUBMIT_LOGIN } from 'actions/auth/login/constants'
+import { REGISTER_ON_CLICK_SUBMIT_REGISTER } from 'actions/auth/register/constants'
 import * as actAuth from 'actions/auth/login/index'
 import * as apiAuth from 'api/auth'
 import { browserHistory } from 'react-router'
@@ -23,10 +24,28 @@ function * onClickSubmitLogin (request) {
   }
 }
 
+function * onClickSubmitRegister (request) {
+  try {
+    const {email, password} = request.payload.registerValues
+    const user = {
+      user: {
+        email: email,
+        password: password
+      }
+    }
+    yield call(apiAuth.registerUser, user)
+  } catch (e) {
+    console.log(e)
+  } finally {
+    browserHistory.push('/login')
+  }
+}
+
 function fillCredentialData (data) {
   Cookies.set('access_token', data.access_token)
 }
 
 export default function * authSaga () {
   yield takeLatest(LOGIN_ON_CLICK_SUBMIT_LOGIN, onClickSubmitLogin)
+  yield takeLatest(REGISTER_ON_CLICK_SUBMIT_REGISTER, onClickSubmitRegister)
 }
