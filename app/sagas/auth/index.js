@@ -2,6 +2,7 @@ import { put, call, takeLatest } from 'redux-saga/effects'
 import { LOGIN_ON_CLICK_SUBMIT_LOGIN } from 'actions/auth/login/constants'
 import { REGISTER_ON_CLICK_SUBMIT_REGISTER } from 'actions/auth/register/constants'
 import * as actAuth from 'actions/auth/login/index'
+import * as regAuth from 'actions/auth/register/index'
 import * as apiAuth from 'api/auth'
 import { browserHistory } from 'react-router'
 
@@ -40,6 +41,7 @@ function * onClickSubmitRegister (request) {
     console.log(e)
   } finally {
     browserHistory.push('/login')
+    yield put(regAuth.showDialogSuccess(true))
   }
 }
 

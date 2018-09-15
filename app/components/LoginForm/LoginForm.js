@@ -30,6 +30,7 @@ class LoginForm extends React.Component {
           className='password-input' />
         <Button
           variant='contained'
+          size='large'
           className='login-button float-right mt-5'
           type='submit'>
           Login
