@@ -34,6 +34,7 @@ class RegisterForm extends React.Component {
           type='submit'>
           Register
         </Button>
+        <a className='text-white' href='/login'>Sudah memiliki akun?</a>
       </form>
     )
   }

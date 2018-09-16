@@ -35,6 +35,7 @@ class LoginForm extends React.Component {
           type='submit'>
           Login
         </Button>
+        <a className='text-white' href='/register'>Belum memiliki akun?</a>
       </form>
     )
   }

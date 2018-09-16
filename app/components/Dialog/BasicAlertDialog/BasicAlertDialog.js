@@ -33,7 +33,7 @@ class BasicAlertDialog extends React.Component {
           <DialogContentText id="alert-dialog-description">{description}</DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={this.handleClose} color="primary" autoFocus>
+          <Button onClick={this.handleClose} color="primary">
             OK
           </Button>
         </DialogActions>
