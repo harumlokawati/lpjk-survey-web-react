@@ -17,6 +17,7 @@ import { reducer as notificationReducer } from 'reducers/notification'
 // Saga
 import surveySaga from 'sagas/survey'
 import authSaga from 'sagas/auth'
+import profileSaga from 'sagas/profile'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -43,6 +44,7 @@ store.subscribe(throttle(() => {
 
 sagaMiddleware.run(surveySaga)
 sagaMiddleware.run(authSaga)
+sagaMiddleware.run(profileSaga)
 
 const LPJKRoutes = require('./routes')(store)
 ReactDOM.render(<LPJKRoutes />, document.getElementById('root'))

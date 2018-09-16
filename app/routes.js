@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import App from 'pages/App'
 
 import Survey from 'pages/Survey'
-import CompanyProfile from 'pages/Company/Profile'
+import CompanyProfile from 'pages/Profile'
 import Login from 'pages/Login'
 import Register from 'pages/Register'
 

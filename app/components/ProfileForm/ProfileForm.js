@@ -15,20 +15,7 @@ class ProfileForm extends React.Component {
 
   render () {
     let {handleSubmit} = this.props
-    let COMPANY_CATEGORY_OPTIONS = [
-      { id: 1, name: 'Owner' },
-      { id: 2, name: 'Konsultan' },
-      { id: 3, name: 'Kontraktor' },
-      { id: 4, name: 'Other' }
-    ]
-    let COMPANY_TYPE_OPTIONS = [
-      { id: 1, name: 'Perusahaan Perseorangan' },
-      { id: 2, name: 'Koperasi' },
-      { id: 3, name: 'Badan Usaha Milik Negara (BUMN)' },
-      { id: 4, name: 'Badan Usaha Milik Swasta (BUMS)' },
-      { id: 5, name: 'Other' }
-    ]
-    const data = true
+    const data = this.props.data.companyType
     return (
       <form className='profile-form' onSubmit={handleSubmit}>
         {data && <div className='col-md-6'>
@@ -38,16 +25,16 @@ class ProfileForm extends React.Component {
           <div className='profile-form-content'>
             <hr />
             <div className='row mb-4'>
-              <BorderedTextField className='col-md-6' question='name' placeholder='Nama' />
-              <BorderedTextField className='col-md-6' question='location' placeholder='Lokasi' />
+              <BorderedTextField className='col-md-6' question={profileQuestions.COMPANY_NAME} />
+              <BorderedTextField className='col-md-6' question={profileQuestions.COMPANY_LOCATION} />
             </div>
             <div className='row mb-4'>
               <RadioButtonFormGroup className='col-md-6'
                 question={profileQuestions.COMPANY_CATEGORY}
-                options={COMPANY_CATEGORY_OPTIONS} />
+                options={this.props.data.companyCategory} />
               <RadioButtonFormGroup className='col-md-6'
                 question={profileQuestions.COMPANY_TYPE}
-                options={COMPANY_TYPE_OPTIONS} />
+                options={this.props.data.companyType} />
             </div>
             <div className='float-right'>
               <Button variant='contained' size='medium' color='primary' aria-label='Save' type='submit'>
