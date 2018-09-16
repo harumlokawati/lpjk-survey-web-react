@@ -1,10 +1,10 @@
 import './BasicAlertDialog.css'
 import Button from '@material-ui/core/Button'
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogContent from '@material-ui/core/DialogContent'
+import DialogContentText from '@material-ui/core/DialogContentText'
+import DialogTitle from '@material-ui/core/DialogTitle'
 
 class BasicAlertDialog extends React.Component {
   state = {
@@ -12,33 +12,33 @@ class BasicAlertDialog extends React.Component {
   };
 
   handleClickOpen = () => {
-    this.setState({ open: true });
+    this.setState({ open: true })
   };
 
   handleClose = () => {
-    this.setState({ open: false });
+    this.setState({ open: false })
   };
 
-  render() {
+  render () {
     let { title, description } = this.props
     return (
       <Dialog
         open={this.state.open}
         onClose={this.handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
+        aria-labelledby='alert-dialog-title'
+        aria-describedby='alert-dialog-description'
       >
-        <DialogTitle id="alert-dialog-title">{title}</DialogTitle>
+        <DialogTitle id='alert-dialog-title'>{title}</DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">{description}</DialogContentText>
+          <DialogContentText id='alert-dialog-description'>{description}</DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={this.handleClose} color="primary">
+          <Button onClick={this.handleClose} color='primary'>
             OK
           </Button>
         </DialogActions>
       </Dialog>
-    );
+    )
   }
 }
 
