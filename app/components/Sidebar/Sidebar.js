@@ -1,7 +1,15 @@
+/* global localStorage */
 import { Link } from 'react-router'
 import './Sidebar.css'
 
 class Sidebar extends React.Component {
+  _logoutFromApp = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    localStorage.removeItem('state')
+    Cookies.remove('access_token')
+  }
+
   render () {
     return (
       <div className='wrapper'>
@@ -11,6 +19,7 @@ class Sidebar extends React.Component {
             <Link to='/survey'>Survey</Link>
             <Link to='/query'>Query</Link>
             <Link to='/company-profile'>Company Profile</Link>
+            <a href='' onClick={this._logoutFromApp}>Logout</a>
           </div>
         </nav>
       </div>
