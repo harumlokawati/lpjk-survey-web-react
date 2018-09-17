@@ -13,3 +13,4 @@ export const SURVEY_POST_FORM = (id) => `${HOST}/company/${id}/survey`
 
 export const PROFILE_POST_FORM = `${HOST}/company`
 export const PROFILE_PUT_FORM = (id) => `${HOST}/company/${id}`
+export const PROFILE_GET_FORM = (id) => `${HOST}/company/${id}`

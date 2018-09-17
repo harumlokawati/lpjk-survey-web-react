@@ -22,6 +22,16 @@ export function updateCompany (request) {
     })
 }
 
+export function getCompany (request) {
+  return axios.get(api.PROFILE_GET_FORM(request.companyId), generateRequestHeaders())
+    .then(res => {
+      return Promise.resolve(res)
+    })
+    .catch(err => {
+      return Promise.reject(err)
+    })
+}
+
 function generateRequestHeaders () {
   cookiesData = !cookiesData ? Cookies.get('access_token') : cookiesData
   return {

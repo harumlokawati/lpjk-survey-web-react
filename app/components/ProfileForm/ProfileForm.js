@@ -1,16 +1,24 @@
 import './ProfileForm.css'
-import { reduxForm } from 'redux-form'
+import { reduxForm, getFormInitialValues } from 'redux-form'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import RadioButtonFormGroup from 'components/FormGroup/RadioButtonFormGroup'
 import { pageRequest } from 'actions/survey'
+import { getProfile } from 'actions/profile'
 import * as profileQuestions from './constants'
 import Button from '@material-ui/core/Button'
 import BorderedTextField from '../Fields/BorderedTextField'
+import _ from 'lodash'
+import { Field } from 'redux-form'
 
 class ProfileForm extends React.Component {
   componentWillMount () {
     this.props.dispatch(pageRequest())
+    if (this.props.companyId) {
+      let values = {}
+      values.companyId = this.props.companyId
+      this.props.dispatch(getProfile(values))
+    }
   }
 
   render () {
@@ -18,7 +26,7 @@ class ProfileForm extends React.Component {
     const data = this.props.data.companyType
     return (
       <form className='profile-form' onSubmit={handleSubmit}>
-        {data && <div className='col-md-6'>
+        {!_.isEmpty(data) && <div className='col-md-6'>
           <div className='profile-form-header'>
             <h3>Profil Perusahaan</h3>
           </div>
@@ -38,7 +46,7 @@ class ProfileForm extends React.Component {
             </div>
             <div className='float-right'>
               <Button variant='contained' size='medium' color='primary' aria-label='Save' type='submit'>
-                Save
+                Simpan
               </Button>
             </div>
           </div>
@@ -48,15 +56,22 @@ class ProfileForm extends React.Component {
   }
 }
 
-ProfileForm.propTypes = {
-  data: PropTypes.object
-}
-
 function mapStateToProps (state) {
   return {
+    initialValues: {
+      name: state.profile.companyName,
+      location: state.profile.companyLocation,
+      category: state.profile.companyCategory,
+      business_type: state.profile.companyType
+    },
+    companyId: state.app.companyId,
     data: state.survey
   }
 }
 
-const ProfileComponent = connect(mapStateToProps)(ProfileForm)
-export default reduxForm({form: 'profile'})(ProfileComponent)
+function mapDispatchToProps (dispatch) {
+  return { dispatch }
+}
+
+const ProfileComponent = reduxForm({form: 'profile', enableReinitialize: true})(ProfileForm)
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileComponent)
