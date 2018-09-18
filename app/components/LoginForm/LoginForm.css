@@ -1,31 +1,33 @@
 .login-form {
-  width: 25%;
-  height: auto;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+    width: 25%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .email-input, .password-input {
-  width: 100%;
-  margin: 5% auto;
+    width: 100%;
+    margin: 5% auto;
 }
 
 .lpjk-logo-white {
-  width: 20%;
-  height: 20%;
-  margin-bottom: 5%;
+    width: 20%;
+    height: 20%;
+    margin-bottom: 5%;
 }
 
-.MuiInput-root-1 {
-  color: white !important;
+.MuiFormLabel-root-10, .MuiInput-input-23 {
+    color: white !important;
 }
 
-.MuiInput-underline-5:before {
-  border-bottom: 1px solid white !important;
+.MuiInput-underline-19:before {
+    border-bottom: 1px solid white !important;
 }
 
-.MuiInput-underline-5:after {
-  border-bottom: 2px solid white !important;
+.line-break {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
 }
