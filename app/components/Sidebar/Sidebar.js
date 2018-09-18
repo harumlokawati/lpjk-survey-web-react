@@ -6,8 +6,10 @@ class Sidebar extends React.Component {
   _logoutFromApp = (e) => {
     e.preventDefault()
     e.stopPropagation()
+
     localStorage.removeItem('state')
     Cookies.remove('access_token')
+    // browserHistory.push('/login')
   }
 
   render () {

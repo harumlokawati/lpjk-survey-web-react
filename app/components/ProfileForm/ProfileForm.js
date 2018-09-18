@@ -1,7 +1,6 @@
 import './ProfileForm.css'
-import { reduxForm, getFormInitialValues } from 'redux-form'
+import { reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
 import RadioButtonFormGroup from 'components/FormGroup/RadioButtonFormGroup'
 import { pageRequest } from 'actions/survey'
 import { getProfile } from 'actions/profile'
@@ -9,7 +8,6 @@ import * as profileQuestions from './constants'
 import Button from '@material-ui/core/Button'
 import BorderedTextField from '../Fields/BorderedTextField'
 import _ from 'lodash'
-import { Field } from 'redux-form'
 
 class ProfileForm extends React.Component {
   componentWillMount () {

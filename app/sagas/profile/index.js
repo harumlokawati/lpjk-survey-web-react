@@ -21,7 +21,7 @@ function * onClickCreateProfile (request) {
 
 function * onClickUpdateProfile (request) {
   try {
-    let responseProfile = yield call(apiProfile.updateCompany, request.payload.profileValues)
+    yield call(apiProfile.updateCompany, request.payload.profileValues)
   } catch (e) {
     console.log(e)
   } finally {
@@ -42,7 +42,6 @@ function * getProfile (request) {
     yield put(actProfile.setCompanyLocation(companyLocation))
     yield put(actProfile.setCompanyCategory(companyCategory))
     yield put(actProfile.setCompanyType(companyType))
-
   } catch (e) {
     console.log(e)
   } finally {

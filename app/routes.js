@@ -11,13 +11,22 @@ import Register from 'pages/Register'
 
 module.exports = (store) => {
   const history = syncHistoryWithStore(browserHistory, store)
+
+  const authorizeUser = (nextState, replace) => {
+    const {app: {loggedIn}} = store.getState()
+    console.log(loggedIn)
+    if (!loggedIn) {
+      replace('/login')
+    }
+  }
+
   const routes = () => {
     return (
       <Provider store={store}>
         <Router history={history}>
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
-          <Route component={App}>
+          <Route onEnter={authorizeUser} component={App}>
             <Route path='/survey' component={Survey} />
             <Route path='/company-profile' component={CompanyProfile} />
           </Route>
