@@ -17,10 +17,8 @@ class Sidebar extends React.Component {
       <div className='wrapper'>
         <nav className='sidebar' role='navigation'>
           <div className='sidebar-content'>
-            <Link to='/dashboard'>Dashboard</Link>
             <Link to='/survey'>Survey</Link>
-            <Link to='/query'>Query</Link>
-            <Link to='/company-profile'>Company Profile</Link>
+            <Link to='/company-profile'>Profil Perusahaan</Link>
             <a href='' onClick={this._logoutFromApp}>Logout</a>
           </div>
         </nav>
