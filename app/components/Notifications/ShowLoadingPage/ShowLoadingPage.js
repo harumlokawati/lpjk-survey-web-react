@@ -19,7 +19,6 @@ class ShowLoadingPage extends React.Component {
   progress = () => {
     const { completed } = this.state
     if (completed < 100) {
-      const diff = Math.random() * 30
       this.setState({ completed: Math.min(completed + 10, 100) })
     }
   }
