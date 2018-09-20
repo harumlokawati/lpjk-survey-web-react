@@ -37,7 +37,8 @@ class ProfileForm extends React.Component {
             <div className='row mb-4'>
               <RadioButtonFormGroup className='col-md-6'
                 question={profileQuestions.COMPANY_CATEGORY}
-                options={this.props.data.companyCategory} />
+                options={this.props.data.companyCategory}
+                disabled='true' />
               <RadioButtonFormGroup className='col-md-6'
                 question={profileQuestions.COMPANY_TYPE}
                 options={this.props.data.companyType} />
@@ -55,12 +56,11 @@ class ProfileForm extends React.Component {
 }
 
 function mapStateToProps (state) {
-  console.log(state)
   return {
     initialValues: {
       name: state.profile.companyName,
       location: state.profile.companyLocation,
-      category: state.profile.companyCategory,
+      category: profileQuestions.COMPANY_CATEGORY_INIT,
       business_type: state.profile.companyType
     },
     companyId: state.app.companyId,
