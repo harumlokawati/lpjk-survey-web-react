@@ -1,9 +1,11 @@
 import { put, call, takeLatest } from 'redux-saga/effects'
 import { SURVEY_PAGE_REQUEST, SURVEY_ON_CLICK_SUBMIT_SURVEY } from 'actions/survey/constants'
+import * as actNotif from 'actions/notification/index'
 import * as apiSurvey from 'api/survey/index'
 import * as actSurvey from 'actions/survey/index'
 
 function * pageRequest (action) {
+  yield put(actNotif.showLoadingSpinner(true))
   try {
     let responseSurvey = yield call(apiSurvey.getSurveyData)
 
@@ -57,7 +59,7 @@ function * pageRequest (action) {
   } catch (e) {
     console.log(e)
   } finally {
-    console.log('success')
+    yield put(actNotif.showLoadingSpinner(false))
   }
 }
 
@@ -68,7 +70,7 @@ function * onClickSubmitSurvey (request) {
   } catch (e) {
     console.log(e)
   } finally {
-    console.log('success')
+    yield put(actNotif.showSnackBar({show: true, variant: 'success', message: 'Berhasil menambahkan data teknologi.'}))
   }
 }
 
