@@ -9,9 +9,9 @@ import {
 
 let initialState = {
   companyName: null,
-  companyLocation: {},
-  companyCategory: {},
-  companyType: {}
+  companyLocation: null,
+  companyCategory: null,
+  companyType: null
 }
 
 const reducer = (state = initialState, action) => {

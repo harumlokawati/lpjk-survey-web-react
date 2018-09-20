@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { browserHistory } from 'react-router'
 import { loadState, saveState } from './localStorage'
 import throttle from 'lodash/throttle'
 import { composeWithDevTools } from 'redux-devtools-extension'
@@ -47,6 +48,16 @@ store.subscribe(throttle(() => {
 sagaMiddleware.run(surveySaga)
 sagaMiddleware.run(authSaga)
 sagaMiddleware.run(profileSaga)
+
+axios.interceptors.response.use(response => {
+  return response
+}, error => {
+  if (error.response.status === 401) {
+    console.log('gtfo')
+    browserHistory.push('/login')
+  }
+  return Promise.reject(error)
+})
 
 const LPJKRoutes = require('./routes')(store)
 ReactDOM.render(<LPJKRoutes />, document.getElementById('root'))
