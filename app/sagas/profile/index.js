@@ -6,6 +6,7 @@ import {
 } from 'actions/profile/constants'
 import * as apiProfile from 'api/profile'
 import * as actAuth from 'actions/auth/login/index'
+import * as actNotif from 'actions/notification/index'
 import * as actProfile from 'actions/profile/index'
 
 function * onClickCreateProfile (request) {
@@ -15,7 +16,7 @@ function * onClickCreateProfile (request) {
   } catch (e) {
     console.log(e)
   } finally {
-    console.log('success')
+    yield put(actNotif.showSnackBar({show: true, variant: 'success', message: 'Berhasil menambahkan perusahaan.'}))
   }
 }
 
@@ -25,7 +26,7 @@ function * onClickUpdateProfile (request) {
   } catch (e) {
     console.log(e)
   } finally {
-    console.log('success')
+    yield put(actNotif.showSnackBar({show: true, variant: 'success', message: 'Berhasil memperbarui perusahaan.'}))
   }
 }
 

@@ -68,7 +68,7 @@ function * onClickSubmitSurvey (request) {
   } catch (e) {
     console.log(e)
   } finally {
-    yield put(actNotif.showSnackBar({show: true, variant: 'success', message: 'Successfully submitted the data.'}))
+    yield put(actNotif.showSnackBar({show: true, variant: 'success', message: 'Berhasil menambahkan data teknologi.'}))
   }
 }
 
