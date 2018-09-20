@@ -46,7 +46,6 @@ class LoginForm extends React.Component {
 
   renderInputField = ({input, label, type, className, meta: { touched, error }}) => (
     <MuiThemeProvider theme={this.theme}>
-      {console.log(error)}
       <TextField
         label={label}
         className={className}
