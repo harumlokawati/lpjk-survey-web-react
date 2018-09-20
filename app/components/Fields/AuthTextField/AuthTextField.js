@@ -24,7 +24,6 @@ class AuthTextField extends React.Component {
     let { input, label, type, className, meta: { touched, error } } = this.props
     return (
       <MuiThemeProvider theme={this.theme}>
-        {console.log(error)}
         <TextField
           label={label}
           className={className}

@@ -18,14 +18,6 @@
     margin-bottom: 5%;
 }
 
-.MuiFormLabel-root-10, .MuiInput-input-23 {
-    color: white !important;
-}
-
-.MuiInput-underline-19:before {
-    border-bottom: 1px solid white !important;
-}
-
 .line-break {
     margin-top: 1rem;
     margin-bottom: 1rem;
