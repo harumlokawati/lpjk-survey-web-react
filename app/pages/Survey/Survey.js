@@ -17,7 +17,6 @@ class Survey extends React.Component {
 }
 
 function mapStateToProps (state) {
-  console.log(state.survey)
   const { loggedIn, companyId } = state.app
   return {
     loggedIn: loggedIn,

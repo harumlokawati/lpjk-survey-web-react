@@ -38,7 +38,7 @@ class ProfileForm extends React.Component {
               <RadioButtonFormGroup className='col-md-6'
                 question={profileQuestions.COMPANY_CATEGORY}
                 options={this.props.data.companyCategory}
-                disabled='true' />
+                disabled />
               <RadioButtonFormGroup className='col-md-6'
                 question={profileQuestions.COMPANY_TYPE}
                 options={this.props.data.companyType} />
