@@ -2,12 +2,14 @@ import { isFSA } from 'flux-standard-action'
 import invariant from 'invariant'
 import {
   SET_IS_LOGIN,
-  SET_COMPANY_ID
+  SET_COMPANY_ID,
+  SET_SHOW_LOADING_SPINNER
 } from 'actions/constants'
 
 let initialState = {
   loggedIn: false,
-  companyId: null
+  companyId: null,
+  showLoadingSpinner: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -22,6 +24,8 @@ const reducer = (state = initialState, action) => {
       return {...state, loggedIn: payload.loggedIn}
     case SET_COMPANY_ID:
       return {...state, companyId: payload.companyId}
+    case SET_SHOW_LOADING_SPINNER:
+      return {...state, showLoadingSpinner: payload.showLoadingSpinner}
     default:
       return {...state}
   }
