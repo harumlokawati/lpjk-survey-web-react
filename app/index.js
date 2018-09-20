@@ -41,7 +41,7 @@ const store = createStore(
   )
 )
 store.subscribe(throttle(() => {
-  saveState(store.getState().app)
+  saveState(store.getState())
 }, 1000))
 
 sagaMiddleware.run(surveySaga)
