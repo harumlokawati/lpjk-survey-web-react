@@ -3,8 +3,8 @@ import { reduxForm, Field } from 'redux-form'
 import { Link } from 'react-router'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
-import TextField from '@material-ui/core/TextField'
 import blue from '@material-ui/core/colors/blue'
+import AuthTextField from 'components/Fields/AuthTextField'
 
 const validate = values => {
   const errors = {}
@@ -27,42 +27,6 @@ const validate = values => {
 }
 
 class LoginForm extends React.Component {
-  theme = createMuiTheme({
-    palette: {
-      primary: {
-        light: '#FFFFFF',
-        main: '#FFFFFF',
-        dark: '#FFFFFF',
-        contrastText: '#FFFFFF'
-      },
-      secondary: {
-        light: '#FFFFFF',
-        main: '#FFFFFF',
-        dark: '#FFFFFF',
-        contrastText: '#FFFFFF'
-      }
-    }
-  });
-
-  renderInputField = ({input, label, type, className, meta: { touched, error }}) => (
-    <MuiThemeProvider theme={this.theme}>
-      {console.log(error)}
-      <TextField
-        label={label}
-        className={className}
-        type={type}
-        margin='dense'
-        autoComplete='off'
-        error={touched && (error !== undefined)}
-        helperText={touched && error}
-        required
-        inputProps={{
-          'aria-label': 'Description'
-        }}
-        {...input}
-      />
-    </MuiThemeProvider>)
-
   render () {
     const theme = createMuiTheme({
       palette: {
@@ -79,8 +43,8 @@ class LoginForm extends React.Component {
             <h4 className='text-white'>Selamat Datang di LPJK</h4>
             <p className='text-white'>Masuk dengan Email Anda</p>
           </div>
-          <Field name='email' component={this.renderInputField} label='Email' type='email' className='email-input' />
-          <Field name='password' component={this.renderInputField} label='Password' type='password'
+          <Field name='email' component={AuthTextField} label='Email' type='email' className='email-input' />
+          <Field name='password' component={AuthTextField} label='Password' type='password'
             className='password-input' />
           <span className='row line-break' />
           <Link className='text-white' to='/register'>Belum memiliki akun?</Link>
