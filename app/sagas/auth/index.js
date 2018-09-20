@@ -23,7 +23,7 @@ function * onClickSubmitLogin (request) {
     console.log(e)
   } finally {
     yield put(actAuth.setIsLogin(true))
-    browserHistory.push('/survey')
+    browserHistory.push('/profil_perusahaan')
   }
 }
 

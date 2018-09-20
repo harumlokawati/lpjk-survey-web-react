@@ -28,7 +28,7 @@ module.exports = (store) => {
           <Route exact path='/register' component={Register} />
           <Route onEnter={authorizeUser} component={App}>
             <Route path='/survey' component={Survey} />
-            <Route path='/company-profile' component={CompanyProfile} />
+            <Route path='/profil_perusahaan' component={CompanyProfile} />
           </Route>
         </Router>
       </Provider>
