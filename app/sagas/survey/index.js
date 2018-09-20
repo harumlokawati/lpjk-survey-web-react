@@ -29,6 +29,7 @@ function * pageRequest (action) {
     let technologyConstructionTypes = responseSurvey.data.technology_construction_types
     let technologyConstructionSupports = responseSurvey.data.technology_construction_supports
     let technologyConstructionLevels = responseSurvey.data.technology_construction_levels
+    let intellectualPropertyRights = responseSurvey.data.intellectual_property_rights
 
     yield put(actSurvey.setCompanyCategory(companyCategories))
     yield put(actSurvey.setCompanyType(companyTypes))
@@ -52,6 +53,7 @@ function * pageRequest (action) {
     yield put(actSurvey.setTechnologyConstructionType(technologyConstructionTypes))
     yield put(actSurvey.setTechnologyConstructionSupport(technologyConstructionSupports))
     yield put(actSurvey.setTechnologyConstructionLevel(technologyConstructionLevels))
+    yield put(actSurvey.setIntellectualPropertyRight(intellectualPropertyRights))
   } catch (e) {
     console.log(e)
   } finally {
