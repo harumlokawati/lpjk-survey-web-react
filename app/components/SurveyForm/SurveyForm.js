@@ -153,6 +153,7 @@ SurveyForm.propTypes = {
 }
 
 function mapStateToProps (state) {
+  console.log(state.form)
   return {
     data: state.survey
   }
