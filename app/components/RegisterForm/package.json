@@ -1,0 +1,5 @@
+{
+  "name": "RegisterForm",
+  "private": "true",
+  "main": "./RegisterForm.js"
+}

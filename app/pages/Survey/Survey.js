@@ -11,7 +11,16 @@ class Survey extends React.Component {
   }
 
   _onSubmitSurveyForm = (values) => {
+    values.companyId = this.props.companyId
     this.props.dispatch(onClickSubmitSurvey(values))
+  }
+}
+
+function mapStateToProps (state) {
+  const { loggedIn, companyId } = state.app
+  return {
+    loggedIn: loggedIn,
+    companyId: companyId
   }
 }
 
@@ -19,4 +28,4 @@ function mapDispatchToProps (dispatch) {
   return { dispatch }
 }
 
-export default connect(null, mapDispatchToProps)(Survey)
+export default connect(mapStateToProps, mapDispatchToProps)(Survey)

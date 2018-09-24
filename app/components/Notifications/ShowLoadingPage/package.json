@@ -1,0 +1,5 @@
+{
+  "name": "ShowLoadingPage",
+  "private": true,
+  "main": "./ShowLoadingPage.js"
+}

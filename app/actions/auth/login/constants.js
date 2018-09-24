@@ -1,0 +1,3 @@
+export const PREFIX = 'LOGIN'
+
+export const LOGIN_ON_CLICK_SUBMIT_LOGIN = `${PREFIX}_ON_CLICK_SUBMIT_LOGIN`

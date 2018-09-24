@@ -1,7 +1,6 @@
 import React from 'react'
 import {hot} from 'react-hot-loader'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
 import { pageRequest } from 'actions/survey/index'
 import Layout from 'components/Layout'
 
@@ -17,10 +16,6 @@ class App extends React.Component {
     // TODO: add saga listener
     this.props.dispatch(pageRequest())
   }
-}
-
-App.propTypes = {
-  data: PropTypes.object
 }
 
 function mapStateToProps (state) {

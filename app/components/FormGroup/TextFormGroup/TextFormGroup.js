@@ -1,12 +1,12 @@
-import TextField from 'components/Fields/TextField/TextField'
+import BasicTextField from 'components/Fields/BasicTextField/BasicTextField'
 
 class TextFormGroup extends React.Component {
   render () {
-    let {question, placeholder, className} = this.props
+    let {question, placeholder, className, multiline} = this.props
     return (
       <div className={`form-group ${className}`}>
         <p>{question.question}</p>
-        <TextField question={question} placeholder={placeholder} />
+        <BasicTextField multiline={multiline} question={question} placeholder={placeholder} />
       </div>
     )
   }

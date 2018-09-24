@@ -1,0 +1,5 @@
+{
+  "name": "BasicAlertDialog",
+  "private": true,
+  "main": "./BasicAlertDialog.js"
+}

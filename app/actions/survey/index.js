@@ -22,7 +22,8 @@ import {
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_TYPE,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUPPORT,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_LEVEL,
-  SURVEY_ON_CLICK_SUBMIT_SURVEY
+  SURVEY_ON_CLICK_SUBMIT_SURVEY,
+  SURVEY_SET_INTELLECTUAL_PROPERTY_RIGHT
 } from './constants'
 
 export function pageRequest () {
@@ -118,6 +119,10 @@ export function setTechnologyConstructionSupport (technologyConstructionSupport)
 
 export function setTechnologyConstructionLevel (technologyConstructionLevel) {
   return {type: SURVEY_SET_TECHNOLOGY_CONSTRUCTION_LEVEL, payload: {technologyConstructionLevel}}
+}
+
+export function setIntellectualPropertyRight (intellectualPropertyRight) {
+  return {type: SURVEY_SET_INTELLECTUAL_PROPERTY_RIGHT, payload: {intellectualPropertyRight}}
 }
 
 export function onClickSubmitSurvey (surveyValues) {

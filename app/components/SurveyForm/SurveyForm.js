@@ -32,15 +32,18 @@ class SurveyForm extends React.Component {
                 options={this.props.data.constructionProductType} />
               <TextFormGroup className='col-md-6'
                 question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_APPLIED}
-                placeholder='Answer' />
+                placeholder='Jawaban'
+                multiline />
             </div>
             <div className='row mb-4'>
               <TextFormGroup className='col-md-6'
                 question={surveyQuestions.CONSTRUCTION_PROJECT}
-                placeholder='Answer' />
+                placeholder='Jawaban'
+                multiline />
               <TextFormGroup className='col-md-6'
                 question={surveyQuestions.CONSTRUCTION_PROJECT_DATE}
-                placeholder='Answer' />
+                placeholder='Jawaban'
+                multiline />
             </div>
             <div className='row mb-4'>
               <RadioButtonFormGroup className='col-md-6'
@@ -77,7 +80,8 @@ class SurveyForm extends React.Component {
             <div className='row mb-4'>
               <TextFormGroup className='col-md-6'
                 question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_ALL_BENEFITS}
-                placeholder='Answer' />
+                placeholder='Jawaban'
+                multiline />
               <CheckboxFormGroup className='col-md-6'
                 question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_COST}
                 options={this.props.data.technologyConstructionCost} />
@@ -88,7 +92,8 @@ class SurveyForm extends React.Component {
                 options={this.props.data.technologyConstructionSuccessFactor} />
               <TextFormGroup className='col-md-6'
                 question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_ALL_SUCCESS_FACTORS}
-                placeholder='Answer' />
+                placeholder='Jawaban'
+                multiline />
             </div>
             <div className='row mb-4'>
               <RadioButtonFormGroup className='col-md-6'
@@ -96,7 +101,8 @@ class SurveyForm extends React.Component {
                 options={this.props.data.technologyConstructionObstacle} />
               <TextFormGroup className='col-md-6'
                 question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_ALL_OBSTACLES}
-                placeholder='Answer' />
+                placeholder='Jawaban'
+                multiline />
             </div>
             <div className='row mb-4'>
               <CheckboxFormGroup className='col-md-6'
