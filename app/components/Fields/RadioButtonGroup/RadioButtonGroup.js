@@ -4,7 +4,6 @@ import RadioGroup from '@material-ui/core/RadioGroup'
 class RadioButtonGroup extends React.Component {
   render () {
     const {input, ...rest} = this.props
-    console.log(input)
     return (
       <RadioGroup
         {...input}

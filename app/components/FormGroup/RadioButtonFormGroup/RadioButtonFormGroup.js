@@ -13,7 +13,6 @@ class RadioButtonFormGroup extends React.Component {
 
   render () {
     let {question, className, options, disabled, form} = this.props
-    console.log(form)
     const renderField = () => {
       return (
         <div>

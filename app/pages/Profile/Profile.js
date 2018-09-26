@@ -14,7 +14,6 @@ class Profile extends React.Component {
   }
 
   _onSubmitProfileForm = (values) => {
-    console.log(values)
     if (this.props.companyId) {
       values.companyId = this.props.companyId
       this.props.dispatch(onClickUpdateProfile(values))
