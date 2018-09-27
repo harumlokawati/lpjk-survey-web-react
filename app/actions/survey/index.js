@@ -22,12 +22,17 @@ import {
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_TYPE,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUPPORT,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_LEVEL,
+  SURVEY_SET_INTELLECTUAL_PROPERTY_RIGHT,
   SURVEY_ON_CLICK_SUBMIT_SURVEY,
-  SURVEY_SET_INTELLECTUAL_PROPERTY_RIGHT
+  SURVEY_GET_ALL_SURVEYS
 } from './constants'
 
 export function pageRequest () {
   return {type: SURVEY_PAGE_REQUEST, payload: {}}
+}
+
+export function getAllSurveys (companyId) {
+  return {type: SURVEY_GET_ALL_SURVEYS, payload: {companyId}}
 }
 
 export function setCompanyCategory (companyCategory) {
