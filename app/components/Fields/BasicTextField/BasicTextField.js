@@ -22,7 +22,6 @@ class BasicTextField extends React.Component {
       autoComplete='off'
       error={touched && (error !== undefined)}
       helperText={touched && error}
-      required
       inputProps={{
         'aria-label': 'Description'
       }}
