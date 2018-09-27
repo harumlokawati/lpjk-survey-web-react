@@ -7,17 +7,17 @@ import RadioButtonGroup from 'components/Fields/RadioButtonGroup'
 import TextField from '@material-ui/core/TextField'
 
 class RadioButtonFormGroup extends React.Component {
-  renderTextField = ({input}) => (
-    <TextField {...input} />
+  renderTextField = ({input, otherClassName}) => (
+    <TextField className={otherClassName} {...input} />
   )
 
   render () {
-    let {question, className, options, disabled, form} = this.props
+    let {question, className, options, disabled, form, otherClassName} = this.props
     const renderField = () => {
       return (
         <div>
           Lain-Lain &emsp;
-          <Field name={question.key + '_lain_lain'} component={this.renderTextField} />
+          <Field name={question.key + '_lain_lain'} otherClassName={otherClassName} component={this.renderTextField} />
         </div>
       )
     }
@@ -35,7 +35,7 @@ class RadioButtonFormGroup extends React.Component {
         <Field name={question.key} component={RadioButtonGroup}>
           {options.map(function (option, index) {
             if (option.name === 'Lain-Lain') {
-              return <FormControlLabel key={index} value={otherValue} control={<Radio />} label={renderField()} />
+              return <FormControlLabel key={index} value={otherValue} control={<Radio disabled={disabled || false} />} label={renderField()} />
             }
             return <FormControlLabel key={index} value={option.name} control={<Radio disabled={disabled || false} />} label={option.name} />
           })}

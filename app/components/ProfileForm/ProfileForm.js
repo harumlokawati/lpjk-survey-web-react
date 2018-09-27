@@ -25,7 +25,7 @@ class ProfileForm extends React.Component {
     const data = this.props.data.companyType
     return (
       <form className='profile-form' onSubmit={handleSubmit}>
-        {!_.isEmpty(data) && <div className='col-md-12'>
+        {!_.isEmpty(data) && <div className='col-md-6'>
           <div className='profile-form-header'>
             <h3>Profil Perusahaan</h3>
           </div>
@@ -39,6 +39,7 @@ class ProfileForm extends React.Component {
               <RadioButtonFormGroup className='col-md-6'
                 question={profileQuestions.COMPANY_CATEGORY}
                 options={this.props.data.companyCategory}
+                otherClassName='col-md-7'
                 disabled />
               <SelectFormGroup className='col-md-6'
                 question={profileQuestions.COMPANY_TYPE}

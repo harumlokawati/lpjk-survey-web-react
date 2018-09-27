@@ -23,7 +23,6 @@ class SelectFormGroup extends React.Component {
     return (
       <div className={`form-group ${className}`}>
         <p>{question.question}</p>
-        <hr />
         <Field name={question.key} component={this.renderSelectField} options={options} inputName={question.key} />
       </div>
     )
