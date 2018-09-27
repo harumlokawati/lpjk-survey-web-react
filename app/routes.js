@@ -8,6 +8,7 @@ import Survey from 'pages/Survey'
 import CompanyProfile from 'pages/Profile'
 import Login from 'pages/Login'
 import Register from 'pages/Register'
+import Review from 'pages/Review'
 
 module.exports = (store) => {
   const history = syncHistoryWithStore(browserHistory, store)
@@ -38,6 +39,7 @@ module.exports = (store) => {
           <Route onEnter={authorizeUser} component={App}>
             <Route path='/survey' component={Survey} />
             <Route path='/profil_perusahaan' component={CompanyProfile} />
+            <Route path='/daftar_teknologi' component={Review} />
           </Route>
         </Router>
       </Provider>
