@@ -7,8 +7,8 @@ import RadioButtonGroup from 'components/Fields/RadioButtonGroup'
 import TextField from '@material-ui/core/TextField'
 
 class RadioButtonFormGroup extends React.Component {
-  renderTextField = ({input, otherClassName}) => (
-    <TextField className={otherClassName} {...input} />
+  renderTextField = ({input, disabled, otherClassName}) => (
+    <TextField className={otherClassName} disabled={disabled} {...input} />
   )
 
   render () {
@@ -17,18 +17,12 @@ class RadioButtonFormGroup extends React.Component {
       return (
         <div>
           Lain-Lain &emsp;
-          <Field name={question.key + '_lain_lain'} otherClassName={otherClassName} component={this.renderTextField} />
+          <Field name={question.key + '_lain_lain'} otherClassName={otherClassName} disabled={disabled} component={this.renderTextField} />
         </div>
       )
     }
 
-    let otherValue
-    if (form !== undefined) {
-      otherValue = form[question.key + '_lain_lain']
-    } else {
-      otherValue = 'Lain-Lain'
-    }
-
+    let otherValue = form === undefined ? 'Lain-Lain' : form[question.key + '_lain_lain']
     return (
       <div className={`form-group ${className}`}>
         <p>{question.question}</p>

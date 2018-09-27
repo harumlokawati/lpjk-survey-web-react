@@ -1,4 +1,4 @@
-import { reduxForm } from 'redux-form'
+import { reduxForm, formValueSelector } from 'redux-form'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import RadioButtonFormGroup from 'components/FormGroup/RadioButtonFormGroup'
@@ -16,7 +16,7 @@ class SurveyForm extends React.Component {
 
   render () {
     let {handleSubmit} = this.props
-    const data = this.props.data.technologyConstructionLevel.length > 0
+    const data = this.props.data.intellectualPropertyRight.length > 0
     return (
       <form onSubmit={handleSubmit}>
         {data && <div className='survey-form'>
@@ -73,18 +73,18 @@ class SurveyForm extends React.Component {
               <RadioButtonFormGroup className='col-md-6'
                 question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_PRIMARY_TYPE}
                 options={this.props.data.technologyConstructionPrimaryType} />
+              <CheckboxFormGroup className='col-md-6'
+                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_COST}
+                options={this.props.data.technologyConstructionCost} />
+            </div>
+            <div className='row mb-4'>
               <RadioButtonFormGroup className='col-md-6'
                 question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_BENEFIT}
                 options={this.props.data.technologyConstructionBenefit} />
-            </div>
-            <div className='row mb-4'>
               <TextFormGroup className='col-md-6'
                 question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_ALL_BENEFITS}
                 placeholder='Jawaban'
                 multiline />
-              <CheckboxFormGroup className='col-md-6'
-                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_COST}
-                options={this.props.data.technologyConstructionCost} />
             </div>
             <div className='row mb-4'>
               <RadioButtonFormGroup className='col-md-6'
@@ -116,25 +116,38 @@ class SurveyForm extends React.Component {
               <RadioButtonFormGroup className='col-md-6'
                 question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_SUPPLY_CHAIN}
                 options={this.props.data.technologyConstructionSupplyChain} />
+              {this.props.answers.technologyConstructionSupplyChain === 'Ya' &&
               <RadioButtonFormGroup className='col-md-6'
                 question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_SUPPLY_CHAIN_ORIGIN}
-                options={this.props.data.technologyConstructionSupplyChainOrigin} />
+                options={this.props.data.technologyConstructionSupplyChainOrigin} />}
             </div>
             <div className='row mb-4'>
               <RadioButtonFormGroup className='col-md-6'
                 question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_INNOVATION_ORIGIN}
                 options={this.props.data.technologyConstructionInnovationOrigin} />
+              {this.props.answers.technologyConstructionInnovationOrigin === 'Dalam Negeri' &&
               <RadioButtonFormGroup className='col-md-6'
                 question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_INNOVATION_CATEGORY}
-                options={this.props.data.technologyConstructionInnovationCategory} />
+                options={this.props.data.technologyConstructionInnovationCategory.slice(0, 2)} />}
+              {this.props.answers.technologyConstructionInnovationOrigin === 'Luar Negeri' &&
+              <RadioButtonFormGroup className='col-md-6'
+                question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_INNOVATION_CATEGORY}
+                options={this.props.data.technologyConstructionInnovationCategory.slice(2, 5)} />}
             </div>
+            {this.props.answers.technologyConstructionInnovationCategory === 'HaKI (Hak atas Kekayaan Intelektual)' &&
+            <div className='row mb-4'>
+              <RadioButtonFormGroup className='col-md-6'
+                question={surveyQuestions.INTELLECTUAL_PROPERTY_RIGHT}
+                options={this.props.data.intellectualPropertyRight} />
+            </div>}
             <div className='row mb-4'>
               <RadioButtonFormGroup className='col-md-6'
                 question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_ASSESSMENT}
                 options={this.props.data.technologyConstructionAssessment} />
+              {this.props.answers.technologyConstructionAssessment === 'Ya' &&
               <RadioButtonFormGroup className='col-md-6'
                 question={surveyQuestions.TECHNOLOGY_CONSTRUCTION_LEVEL}
-                options={this.props.data.technologyConstructionLevel} />
+                options={this.props.data.technologyConstructionLevel} />}
             </div>
             <div className='row'>
               <Button variant='contained' size='large' color='primary' aria-label='Submit' type='submit'>
@@ -153,8 +166,15 @@ SurveyForm.propTypes = {
 }
 
 function mapStateToProps (state) {
+  const selector = formValueSelector('survey')
   return {
-    data: state.survey
+    data: state.survey,
+    answers: {
+      technologyConstructionSupplyChain: selector(state, 'technology_construction_supply_chain'),
+      technologyConstructionInnovationOrigin: selector(state, 'technology_construction_innovation_origin'),
+      technologyConstructionInnovationCategory: selector(state, 'technology_construction_innovation_category'),
+      technologyConstructionAssessment: selector(state, 'technology_construction_assessment')
+    }
   }
 }
 

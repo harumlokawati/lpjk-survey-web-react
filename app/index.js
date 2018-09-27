@@ -1,3 +1,4 @@
+/* global localStorage */
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { browserHistory } from 'react-router'
@@ -53,7 +54,8 @@ axios.interceptors.response.use(response => {
   return response
 }, error => {
   if (error.response.status === 401) {
-    console.log('gtfo')
+    localStorage.removeItem('state')
+    Cookies.remove('access_token')
     browserHistory.push('/login')
   }
   return Promise.reject(error)
