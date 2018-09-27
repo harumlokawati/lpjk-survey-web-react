@@ -56,7 +56,7 @@ axios.interceptors.response.use(response => {
   if (error.response.status === 401) {
     localStorage.removeItem('state')
     Cookies.remove('access_token')
-    browserHistory.push('/login')
+    location.reload()
   }
   return Promise.reject(error)
 })

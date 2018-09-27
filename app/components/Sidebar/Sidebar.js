@@ -9,7 +9,7 @@ class Sidebar extends React.Component {
 
     localStorage.removeItem('state')
     Cookies.remove('access_token')
-    // browserHistory.push('/login')
+    location.reload()
   }
 
   render () {
