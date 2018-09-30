@@ -1,22 +1,41 @@
 import './RegisterForm.css'
 import { reduxForm, Field } from 'redux-form'
 import Button from '@material-ui/core/Button'
-import Input from '@material-ui/core/Input'
+import AuthTextField from 'components/Fields/AuthTextField'
+import { Link } from 'react-router'
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
+import blue from '../../../node_modules/@material-ui/core/colors/blue'
+
+const validate = values => {
+  const errors = {}
+  const requiredFields = [
+    'email',
+    'password'
+  ]
+  requiredFields.forEach(field => {
+    if (!values[field]) {
+      errors[field] = 'Required'
+    }
+  })
+  if (
+    values.email &&
+    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+  ) {
+    errors.email = 'Invalid email address'
+  }
+  return errors
+}
 
 class RegisterForm extends React.Component {
-  renderInputField = ({input, label, type, className}) => (
-    <Input
-      placeholder={label}
-      className={className}
-      type={type}
-      autoComplete='off'
-      inputProps={{
-        'aria-label': 'Description'
-      }}
-      {...input}
-    />)
-
   render () {
+    const theme = createMuiTheme({
+      palette: {
+        primary: {
+          main: '#8b0000'
+        }
+      }
+    })
+
     let {handleSubmit} = this.props
     return (
       <form className='register-form' onSubmit={handleSubmit}>
@@ -25,19 +44,28 @@ class RegisterForm extends React.Component {
           <h4 className='text-white'>Selamat Datang di LPJK</h4>
           <p className='text-white'>Daftarkan Email Anda</p>
         </div>
-        <Field name='email' component={this.renderInputField} label='Email' type='email' className='email-input' />
-        <Field name='password' component={this.renderInputField} label='Password' type='password' className='password-input' />
-        <Button
-          variant='contained'
-          size='large'
-          className='register-button float-right mt-5'
-          type='submit'>
-          Register
-        </Button>
-        <a className='text-white' href='/login'>Sudah memiliki akun?</a>
+        <Field name='email' component={AuthTextField} label='Email' type='email' className='email-input' />
+        <Field name='password' component={AuthTextField} label='Password' type='password' className='password-input' />
+        <span className='row line-break' />
+        <Link className='text-white' to='/login'>Sudah memiliki akun?</Link>
+        <MuiThemeProvider theme={theme}>
+          <Button
+            variant='contained'
+            size='large'
+            className='register-button float-right mt-5'
+            color='primary'
+            type='submit'>
+            Login
+          </Button>
+        </MuiThemeProvider>
       </form>
     )
   }
 }
 
-export default reduxForm({form: 'register'})(RegisterForm)
+const mapForm = {
+  form: 'register',
+  validate
+}
+
+export default reduxForm(mapForm)(RegisterForm)
