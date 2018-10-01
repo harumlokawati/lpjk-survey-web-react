@@ -1,4 +1,4 @@
-/* global localStorage */
+/* global localStorage, location */
 import { Link } from 'react-router'
 import './Sidebar.css'
 

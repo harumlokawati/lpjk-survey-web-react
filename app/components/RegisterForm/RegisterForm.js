@@ -4,7 +4,6 @@ import Button from '@material-ui/core/Button'
 import AuthTextField from 'components/Fields/AuthTextField'
 import { Link } from 'react-router'
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
-import blue from '../../../node_modules/@material-ui/core/colors/blue'
 
 const validate = values => {
   const errors = {}

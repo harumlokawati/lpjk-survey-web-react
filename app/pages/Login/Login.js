@@ -5,8 +5,8 @@ import { connect } from 'react-redux'
 import BasicAlertDialog from '../../components/Dialog/BasicAlertDialog'
 
 class Login extends React.Component {
-  componentDidMount() {
-    document.title = 'Login | LPJK Survey Teknologi Konstruksi';
+  componentDidMount () {
+    document.title = 'Login | LPJK Survey Teknologi Konstruksi'
   }
 
   render () {

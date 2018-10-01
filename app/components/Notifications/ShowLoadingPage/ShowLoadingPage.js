@@ -1,4 +1,13 @@
 import LinearProgress from '@material-ui/core/LinearProgress'
+import PropTypes from 'prop-types'
+import { withStyles } from '@material-ui/core/styles'
+
+const styles = {
+  root: {
+    width: 'inherit',
+    position: 'fixed'
+  }
+}
 
 class ShowLoadingPage extends React.Component {
   timer = null
@@ -24,8 +33,13 @@ class ShowLoadingPage extends React.Component {
   }
 
   render () {
-    return <LinearProgress variant='determinate' value={this.state.completed} />
+    const { classes } = this.props
+    return <LinearProgress classes={{root: classes.root}} variant='determinate' value={this.state.completed} />
   }
 }
 
-export default ShowLoadingPage
+ShowLoadingPage.propTypes = {
+  classes: PropTypes.object.isRequired
+}
+
+export default withStyles(styles)(ShowLoadingPage)

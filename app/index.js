@@ -1,7 +1,6 @@
-/* global localStorage */
+/* global localStorage, location */
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { browserHistory } from 'react-router'
 import { loadState, saveState } from './localStorage'
 import throttle from 'lodash/throttle'
 import { composeWithDevTools } from 'redux-devtools-extension'
