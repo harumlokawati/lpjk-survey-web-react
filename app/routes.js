@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 
 import App from 'pages/App'
 
+import Dashboard from 'pages/Dashboard'
 import Survey from 'pages/Survey'
 import CompanyProfile from 'pages/Profile'
 import Login from 'pages/Login'
@@ -32,6 +33,7 @@ module.exports = (store) => {
     return (
       <Provider store={store}>
         <Router history={history}>
+          <Route exact path='/' component={Dashboard} />
           <Route onEnter={isLoggedIn}>
             <Route exact path='/login' component={Login} />
             <Route exact path='/register' component={Register} />

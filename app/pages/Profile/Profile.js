@@ -7,6 +7,10 @@ import {
 } from 'actions/profile'
 
 class Profile extends React.Component {
+  componentDidMount() {
+    document.title = 'Profil Perusahaan | LPJK Survey Teknologi Konstruksi';
+  }
+
   render () {
     return (
       <ProfileForm onSubmit={this._onSubmitProfileForm} />
