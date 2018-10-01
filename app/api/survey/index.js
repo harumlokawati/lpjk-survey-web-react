@@ -32,6 +32,16 @@ export function getAllSurveysByCompany (companyId) {
     })
 }
 
+export function getSurveyById (companyId, surveyId) {
+  return axios.get(api.SURVEY_GET_BY_ID(companyId, surveyId), generateRequestHeaders())
+    .then(res => {
+      return Promise.resolve((res))
+    })
+    .catch(err => {
+      return Promise.reject(err)
+    })
+}
+
 function generateRequestHeaders () {
   cookiesData = !cookiesData ? Cookies.get('access_token') : cookiesData
   return {
