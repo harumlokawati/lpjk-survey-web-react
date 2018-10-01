@@ -77,11 +77,11 @@ function * onClickSubmitSurvey (request) {
 function * getAllSurveys (request) {
   let response
   try {
-    response = yield call(apiSurvey.getAllSurveysByCompany, request)
+    response = yield call(apiSurvey.getAllSurveysByCompany, request.payload.companyId)
   } catch (e) {
     console.log(e)
   } finally {
-    console.log(response)
+    yield put(actSurvey.setReviewData(response.data))
   }
 }
 export default function * surveySaga () {

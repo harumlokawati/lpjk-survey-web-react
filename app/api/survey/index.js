@@ -22,8 +22,8 @@ export function submitSurveyData (request) {
     })
 }
 
-export function getAllSurveysByCompany (request) {
-  return axios.get(api.SURVEY_GET_BY_COMPANY(request.companyId), generateRequestHeaders())
+export function getAllSurveysByCompany (companyId) {
+  return axios.get(api.SURVEY_GET_BY_COMPANY(companyId), generateRequestHeaders())
     .then(res => {
       return Promise.resolve(res)
     })

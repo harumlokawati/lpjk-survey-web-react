@@ -1,4 +1,4 @@
-import { Router, Route, browserHistory } from 'react-router'
+import { Router, Route, browserHistory, Link } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { Provider } from 'react-redux'
 
@@ -38,6 +38,21 @@ module.exports = (store) => {
     }
   }
 
+  const NoMatch = () => (
+    <div className='container'>
+      <div className='row justify-content-md-center'>
+        <div className='col-md-auto'>
+          <div className='alert alert-info' role='alert'>
+            <h4>Tidak ada halaman yang tersedia.
+            <hr />
+              <Link to='/login'>Kembali</Link>
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+
   const routes = () => {
     return (
       <Provider store={store}>
@@ -48,10 +63,14 @@ module.exports = (store) => {
             <Route exact path='/register' component={Register} />
           </Route>
           <Route onEnter={authorizeUser} component={App}>
-            <Route path='/survey' component={Survey} onEnter={checkCompanyProfile} />
             <Route path='/profil_perusahaan' component={CompanyProfile} />
-            <Route path='/daftar_teknologi' component={Review} />
+            <Route onEnter={checkCompanyProfile}>
+              <Route path='/survey' component={Survey} onEnter={checkCompanyProfile} />
+              <Route path='/survey/:id' component={Survey} onEnter={checkCompanyProfile} />
+              <Route path='/daftar_teknologi' component={Review} />
+            </Route>
           </Route>
+          <Route path='*' component={NoMatch} />
         </Router>
       </Provider>
     )
