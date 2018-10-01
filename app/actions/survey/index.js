@@ -23,6 +23,7 @@ import {
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUPPORT,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_LEVEL,
   SURVEY_SET_INTELLECTUAL_PROPERTY_RIGHT,
+  SURVEY_SET_REVIEW_DATA,
   SURVEY_ON_CLICK_SUBMIT_SURVEY,
   SURVEY_GET_ALL_SURVEYS
 } from './constants'
@@ -128,6 +129,10 @@ export function setTechnologyConstructionLevel (technologyConstructionLevel) {
 
 export function setIntellectualPropertyRight (intellectualPropertyRight) {
   return {type: SURVEY_SET_INTELLECTUAL_PROPERTY_RIGHT, payload: {intellectualPropertyRight}}
+}
+
+export function setReviewData (review) {
+  return {type: SURVEY_SET_REVIEW_DATA, payload: {review}}
 }
 
 export function onClickSubmitSurvey (surveyValues) {
