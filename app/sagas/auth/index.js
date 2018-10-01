@@ -5,6 +5,7 @@ import * as actAuth from 'actions/auth/login/index'
 import * as regAuth from 'actions/auth/register/index'
 import * as apiAuth from 'api/auth'
 import { browserHistory } from 'react-router'
+import * as actNotif from 'actions/notification'
 
 function * onClickSubmitLogin (request) {
   try {
@@ -24,6 +25,7 @@ function * onClickSubmitLogin (request) {
   } finally {
     yield put(actAuth.setIsLogin(true))
     browserHistory.push('/profil_perusahaan')
+    yield put(actNotif.showSnackBar({show: true, variant: 'success', message: 'Selamat Datang!'}))
   }
 }
 

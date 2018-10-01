@@ -8,9 +8,11 @@ class SelectFormGroup extends React.Component {
     return (<FormControl>
       <Select
         variant='outlined'
+        displayEmpty
         autoWidth
         {...input}
       >
+        <MenuItem selected disabled value=''>Pilih Opsi yang Sesuai</MenuItem>
         {options.map(option => {
           return <MenuItem key={option.id} value={option.name}>{option.name}</MenuItem>
         })}

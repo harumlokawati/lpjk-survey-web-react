@@ -11,6 +11,8 @@ import Login from 'pages/Login'
 import Register from 'pages/Register'
 import Review from 'pages/Review'
 
+import { showSnackBar } from 'actions/notification'
+
 module.exports = (store) => {
   const history = syncHistoryWithStore(browserHistory, store)
 
@@ -23,9 +25,16 @@ module.exports = (store) => {
 
   const isLoggedIn = (nextState, replace) => {
     const {app: {loggedIn}} = store.getState()
-    console.log(loggedIn)
     if (loggedIn) {
       replace('/profil_perusahaan')
+    }
+  }
+
+  const checkCompanyProfile = (nextState, replace) => {
+    const {app: {companyId}} = store.getState()
+    if (!companyId) {
+      replace('/profil_perusahaan')
+      store.dispatch(showSnackBar({show: true, variant: 'error', message: 'Anda harus mengisi profil perusahaan terlebih dahulu.'}))
     }
   }
 
@@ -39,7 +48,7 @@ module.exports = (store) => {
             <Route exact path='/register' component={Register} />
           </Route>
           <Route onEnter={authorizeUser} component={App}>
-            <Route path='/survey' component={Survey} />
+            <Route path='/survey' component={Survey} onEnter={checkCompanyProfile} />
             <Route path='/profil_perusahaan' component={CompanyProfile} />
             <Route path='/daftar_teknologi' component={Review} />
           </Route>

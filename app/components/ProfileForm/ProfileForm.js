@@ -58,6 +58,7 @@ class ProfileForm extends React.Component {
 }
 
 function mapStateToProps (state) {
+  console.log(state)
   return {
     initialValues: {
       name: state.profile.companyName,

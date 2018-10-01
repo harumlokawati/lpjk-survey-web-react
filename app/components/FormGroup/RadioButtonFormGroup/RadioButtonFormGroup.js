@@ -22,9 +22,11 @@ class RadioButtonFormGroup extends React.Component {
   renderSelect = ({input, options}) => (
     <Select
       variant='outlined'
+      displayEmpty
       autoWidth
       {...input}
     >
+      <MenuItem selected disabled value=''>Pilih Opsi yang Sesuai</MenuItem>
       {options.map(option => {
         return <MenuItem key={option.code} value={option.name}>{option.name}</MenuItem>
       })}
