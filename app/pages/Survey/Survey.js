@@ -9,8 +9,9 @@ class Survey extends React.Component {
   }
 
   render () {
+    const {params} = this.props
     return (
-      <SurveyForm onSubmit={this._onSubmitSurveyForm} />
+      <SurveyForm onSubmit={this._onSubmitSurveyForm} params={params} />
     )
   }
 

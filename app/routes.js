@@ -34,24 +34,28 @@ module.exports = (store) => {
     const {app: {companyId}} = store.getState()
     if (!companyId) {
       replace('/profil_perusahaan')
-      store.dispatch(showSnackBar({show: true, variant: 'error', message: 'Anda harus mengisi profil perusahaan terlebih dahulu.'}))
+      store.dispatch(showSnackBar({
+        show: true,
+        variant: 'error',
+        message: 'Anda harus mengisi profil perusahaan terlebih dahulu.'
+      }))
     }
   }
 
-  const NoMatch = () => (
-    <div className='container'>
+  const NoMatch = () => {
+    return <div className='container'>
       <div className='row justify-content-md-center'>
         <div className='col-md-auto'>
           <div className='alert alert-info' role='alert'>
-            <h4>Tidak ada halaman yang tersedia.
-            <hr />
+            <h4>
+              Tidak ada halaman yang tersedia.<hr />
               <Link to='/login'>Kembali</Link>
             </h4>
           </div>
         </div>
       </div>
     </div>
-  )
+  }
 
   const routes = () => {
     return (

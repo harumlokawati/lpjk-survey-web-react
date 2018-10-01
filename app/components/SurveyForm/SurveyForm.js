@@ -4,14 +4,20 @@ import PropTypes from 'prop-types'
 import RadioButtonFormGroup from 'components/FormGroup/RadioButtonFormGroup'
 import TextFormGroup from 'components/FormGroup/TextFormGroup'
 import CheckboxFormGroup from 'components/FormGroup/CheckboxFormGroup'
-import { pageRequest } from 'actions/survey'
+import { pageRequest, getSurveyById } from 'actions/survey'
 import * as surveyQuestions from './constants'
 import Button from '@material-ui/core/Button'
+import { isEmpty } from 'lodash'
 import './SurveyForm.css'
 
 class SurveyForm extends React.Component {
   componentWillMount () {
-    this.props.dispatch(pageRequest())
+    const {companyId, params, dispatch} = this.props
+    dispatch(pageRequest())
+
+    if (!isEmpty(params)) {
+      dispatch(getSurveyById(companyId, params.id))
+    }
   }
 
   render () {
@@ -167,16 +173,49 @@ SurveyForm.propTypes = {
 
 function mapStateToProps (state) {
   const selector = formValueSelector('survey')
+  const {companyId} = state.app
+  const {surveyDetail} = state.survey
+  console.log(surveyDetail)
   return {
+    companyId: companyId,
     data: state.survey,
     answers: {
       technologyConstructionSupplyChain: selector(state, 'technology_construction_supply_chain'),
       technologyConstructionInnovationOrigin: selector(state, 'technology_construction_innovation_origin'),
       technologyConstructionInnovationCategory: selector(state, 'technology_construction_innovation_category'),
       technologyConstructionAssessment: selector(state, 'technology_construction_assessment')
+    },
+    initialValues: {
+      construction_product_type: surveyDetail ? surveyDetail.construction_product_type : undefined,
+      technology_construction_applied: surveyDetail ? surveyDetail.technology_construction_applied : undefined,
+      construction_project: surveyDetail ? surveyDetail.construction_project : undefined,
+      construction_project_date: surveyDetail ? surveyDetail.construction_project_date : undefined,
+      construction_project_cost: surveyDetail ? surveyDetail.construction_project_cost : undefined,
+      technology_construction_stage: surveyDetail ? surveyDetail.technology_construction_stage : undefined,
+      technology_construction_type: surveyDetail ? surveyDetail.technology_construction_type : undefined,
+      technology_construction_origin: surveyDetail ? surveyDetail.technology_construction_origin : undefined,
+      technology_construction_owner: surveyDetail ? surveyDetail.technology_construction_owner : undefined,
+      technology_construction_category: surveyDetail ? surveyDetail.technology_construction_category : undefined,
+      technology_construction_primary_type: surveyDetail ? surveyDetail.technology_construction_primary_type : undefined,
+      technology_construction_cost: surveyDetail ? surveyDetail.technology_construction_cost : undefined,
+      technology_construction_benefit: surveyDetail ? surveyDetail.technology_construction_benefit : undefined,
+      technology_construction_all_benefits: surveyDetail ? surveyDetail.technology_construction_all_benefits : undefined,
+      technology_construction_success_factor: surveyDetail ? surveyDetail.technology_construction_success_factor : undefined,
+      technology_construction_all_success_factor: surveyDetail ? surveyDetail.technology_construction_all_success_factor : undefined,
+      technology_construction_obstacle: surveyDetail ? surveyDetail.technology_construction_obstacle : undefined,
+      technology_construction_all_obstacles: surveyDetail ? surveyDetail.technology_construction_all_obstacles : undefined,
+      technology_construction_human_resource: surveyDetail ? surveyDetail.technology_construction_human_resource : undefined,
+      technology_construction_support: surveyDetail ? surveyDetail.technology_construction_support : undefined,
+      technology_construction_supply_chain: surveyDetail ? surveyDetail.technology_construction_supply_chain : undefined,
+      technology_construction_supply_chain_origin: surveyDetail ? surveyDetail.technology_construction_supply_chain_origin : undefined,
+      technology_construction_innovation_origin: surveyDetail ? surveyDetail.technology_construction_innovation_origin : undefined,
+      technology_construction_innovation_category: surveyDetail ? surveyDetail.technology_construction_innovation_category : undefined,
+      intellectual_property_right: surveyDetail ? surveyDetail.intellectual_property_right : undefined,
+      technology_construction_assessment: surveyDetail ? surveyDetail.technology_construction_assessment : undefined,
+      technology_construction_level: surveyDetail ? surveyDetail.technology_construction_level : undefined
     }
   }
 }
 
-const SurveyComponent = connect(mapStateToProps)(SurveyForm)
-export default reduxForm({form: 'survey'})(SurveyComponent)
+const SurveyComponent = reduxForm({form: 'survey', enableReinitialize: true})(SurveyForm)
+export default connect(mapStateToProps)(SurveyComponent)

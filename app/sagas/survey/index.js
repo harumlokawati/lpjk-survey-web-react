@@ -1,5 +1,10 @@
 import { put, call, takeLatest } from 'redux-saga/effects'
-import { SURVEY_PAGE_REQUEST, SURVEY_ON_CLICK_SUBMIT_SURVEY, SURVEY_GET_ALL_SURVEYS } from 'actions/survey/constants'
+import {
+  SURVEY_PAGE_REQUEST,
+  SURVEY_ON_CLICK_SUBMIT_SURVEY,
+  SURVEY_GET_ALL_SURVEYS,
+  SURVEY_GET_SURVEY_BY_ID
+} from 'actions/survey/constants'
 import * as actNotif from 'actions/notification/index'
 import * as apiSurvey from 'api/survey/index'
 import * as actSurvey from 'actions/survey/index'
@@ -84,8 +89,22 @@ function * getAllSurveys (request) {
     yield put(actSurvey.setReviewData(response.data))
   }
 }
+
+function * getSurveyById (request) {
+  let response
+  try {
+    const {payload: {companyId, surveyId}} = request
+    response = yield call(apiSurvey.getSurveyById, companyId, surveyId)
+  } catch (e) {
+    console.log(e)
+  } finally {
+    yield put(actSurvey.setReviewDetail(response.data))
+  }
+}
+
 export default function * surveySaga () {
   yield takeLatest(SURVEY_PAGE_REQUEST, pageRequest)
   yield takeLatest(SURVEY_ON_CLICK_SUBMIT_SURVEY, onClickSubmitSurvey)
   yield takeLatest(SURVEY_GET_ALL_SURVEYS, getAllSurveys)
+  yield takeLatest(SURVEY_GET_SURVEY_BY_ID, getSurveyById)
 }
