@@ -34,7 +34,14 @@ class AuthTextField extends React.Component {
           helperText={touched && error}
           required
           inputProps={{
-            'aria-label': 'Description'
+            'aria-label': 'Description',
+            'className': 'text-white'
+          }}
+          InputProps={{
+            'className': 'border-white'
+          }}
+          InputLabelProps={{
+            'className': 'text-white'
           }}
           {...input}
         />

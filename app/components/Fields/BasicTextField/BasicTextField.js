@@ -1,6 +1,7 @@
 import './BasicTextField.css'
 import { Field } from 'redux-form'
 import TextField from '@material-ui/core/TextField'
+import Input from '@material-ui/core/Input'
 
 class BasicTextField extends React.Component {
   renderTextField = ({
@@ -21,11 +22,20 @@ class BasicTextField extends React.Component {
       autoComplete='off'
       error={touched && (error !== undefined)}
       helperText={touched && error}
-      required
       inputProps={{
         'aria-label': 'Description'
       }}
       multiline={multiline}
+      fullWidth
+      {...input}
+    />
+  )
+
+  renderDateField = ({input}) => (
+    <Input
+      type='date'
+      margin='dense'
+      required
       fullWidth
       {...input}
     />
@@ -40,7 +50,7 @@ class BasicTextField extends React.Component {
             type='text'
             placeholder={placeholder}
             multiline={multiline}
-            component={this.renderTextField} />
+            component={question.key === 'construction_project_date' ? this.renderDateField : this.renderTextField} />
           <span className='field-label' />
           <span className='field-border' />
         </label>

@@ -66,7 +66,7 @@ class CustomSnackBar extends React.Component {
   }
 
   render () {
-    const {classes, className, message, variant, ...other} = this.props
+    const {classes, className, message, variant} = this.props
     const Icon = variantIcon[variant]
     return (
       <Snackbar
@@ -99,7 +99,6 @@ class CustomSnackBar extends React.Component {
               <CloseIcon className={classes.icon} />
             </IconButton>
           ]}
-          {...other}
         />
       </Snackbar>)
   }
@@ -109,4 +108,4 @@ function mapDispatchToProps (dispatch) {
   return { dispatch }
 }
 
-export default (withStyles(styles))(connect(null, mapDispatchToProps)(CustomSnackBar))
+export default connect(null, mapDispatchToProps)(withStyles(styles)(CustomSnackBar))

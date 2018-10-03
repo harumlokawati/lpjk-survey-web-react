@@ -1,4 +1,4 @@
-/* global localStorage */
+/* global localStorage, location */
 import { Link } from 'react-router'
 import './Sidebar.css'
 
@@ -9,7 +9,7 @@ class Sidebar extends React.Component {
 
     localStorage.removeItem('state')
     Cookies.remove('access_token')
-    // browserHistory.push('/login')
+    location.reload()
   }
 
   render () {
@@ -17,8 +17,9 @@ class Sidebar extends React.Component {
       <div className='wrapper'>
         <nav className='sidebar' role='navigation'>
           <div className='sidebar-content'>
-            <Link to='/survey'>Survey</Link>
-            <Link to='/profil_perusahaan'>Profil Perusahaan</Link>
+            <Link activeClassName='active' to='/survey'>Survey</Link>
+            <Link activeClassName='active' to='/profil_perusahaan'>Profil Perusahaan</Link>
+            <Link activeClassName='active' to='/daftar_teknologi'>Daftar Teknologi</Link>
             <a href='' onClick={this._logoutFromApp}>Logout</a>
           </div>
         </nav>

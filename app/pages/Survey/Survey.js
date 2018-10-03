@@ -4,9 +4,14 @@ import SurveyForm from 'components/SurveyForm'
 import { onClickSubmitSurvey } from 'actions/survey'
 
 class Survey extends React.Component {
+  componentDidMount () {
+    document.title = 'Survey | LPJK Survey Teknologi Konstruksi'
+  }
+
   render () {
+    const {params} = this.props
     return (
-      <SurveyForm onSubmit={this._onSubmitSurveyForm} />
+      <SurveyForm onSubmit={this._onSubmitSurveyForm} params={params} />
     )
   }
 

@@ -1,6 +1,6 @@
+/* global localStorage, location */
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { browserHistory } from 'react-router'
 import { loadState, saveState } from './localStorage'
 import throttle from 'lodash/throttle'
 import { composeWithDevTools } from 'redux-devtools-extension'
@@ -53,8 +53,9 @@ axios.interceptors.response.use(response => {
   return response
 }, error => {
   if (error.response.status === 401) {
-    console.log('gtfo')
-    browserHistory.push('/login')
+    localStorage.removeItem('state')
+    Cookies.remove('access_token')
+    location.reload()
   }
   return Promise.reject(error)
 })

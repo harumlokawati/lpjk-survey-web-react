@@ -68,4 +68,5 @@ const mapForm = {
   form: 'login',
   validate
 }
+
 export default reduxForm(mapForm)(LoginForm)

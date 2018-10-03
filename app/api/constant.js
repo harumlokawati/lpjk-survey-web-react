@@ -10,7 +10,12 @@ export const REGISTER_URL = `${HOST}/auth/register`
  */
 export const SURVEY_GET_FORM_URL = `${HOST}/survey`
 export const SURVEY_POST_FORM = (id) => `${HOST}/company/${id}/survey`
+export const SURVEY_GET_BY_COMPANY = (id) => `${HOST}/company/${id}/survey`
+export const SURVEY_GET_BY_ID = (companyId, surveyId) => `${HOST}/company/${companyId}/survey/${surveyId}`
 
+/**
+ * Company endpoints
+ */
 export const PROFILE_POST_FORM = `${HOST}/company`
 export const PROFILE_PUT_FORM = (id) => `${HOST}/company/${id}`
 export const PROFILE_GET_FORM = (id) => `${HOST}/company/${id}`

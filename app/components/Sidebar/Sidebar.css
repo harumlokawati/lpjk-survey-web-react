@@ -21,6 +21,10 @@
   font-family: "Lato", sans-serif;
 }
 
+.sidebar-content .active {
+  color: #f1f1f1;
+}
+
 .sidebar-content a:hover {
   color: #f1f1f1;
 }

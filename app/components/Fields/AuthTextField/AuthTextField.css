@@ -1,7 +1,3 @@
-.MuiFormLabel-root-10, .MuiInput-input-23 {
-  color: white !important;
-}
-
-.MuiInput-underline-19:before {
+.border-white:before {
   border-bottom: 1px solid white !important;
 }

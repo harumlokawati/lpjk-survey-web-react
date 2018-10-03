@@ -2,6 +2,7 @@ import './ProfileForm.css'
 import { reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import RadioButtonFormGroup from 'components/FormGroup/RadioButtonFormGroup'
+import SelectFormGroup from 'components/FormGroup/SelectFormGroup'
 import { pageRequest } from 'actions/survey'
 import { getProfile } from 'actions/profile'
 import * as profileQuestions from './constants'
@@ -38,8 +39,9 @@ class ProfileForm extends React.Component {
               <RadioButtonFormGroup className='col-md-6'
                 question={profileQuestions.COMPANY_CATEGORY}
                 options={this.props.data.companyCategory}
+                otherClassName='col-md-7'
                 disabled />
-              <RadioButtonFormGroup className='col-md-6'
+              <SelectFormGroup className='col-md-6'
                 question={profileQuestions.COMPANY_TYPE}
                 options={this.props.data.companyType} />
             </div>

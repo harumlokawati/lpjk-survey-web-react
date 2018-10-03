@@ -7,6 +7,10 @@ import {
 } from 'actions/profile'
 
 class Profile extends React.Component {
+  componentDidMount () {
+    document.title = 'Profil Perusahaan | LPJK Survey Teknologi Konstruksi'
+  }
+
   render () {
     return (
       <ProfileForm onSubmit={this._onSubmitProfileForm} />
@@ -14,7 +18,6 @@ class Profile extends React.Component {
   }
 
   _onSubmitProfileForm = (values) => {
-    console.log(values)
     if (this.props.companyId) {
       values.companyId = this.props.companyId
       this.props.dispatch(onClickUpdateProfile(values))
