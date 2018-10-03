@@ -8,7 +8,7 @@ class RadioButtonGroup extends React.Component {
       <RadioGroup
         {...input}
         {...rest}
-        value={input.value}
+        value={`${input.value}`}
         onChange={(event, value) => input.onChange(value)}
       />
     )

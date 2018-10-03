@@ -16,9 +16,13 @@
   color: #818181;
   display: block;
   margin-top: 10px;
-  margin-left:30px;
+  margin-left: 25px;
   margin-bottom: 10px;
   font-family: "Lato", sans-serif;
+}
+
+.sidebar-content .active {
+  color: #f1f1f1;
 }
 
 .sidebar-content a:hover {

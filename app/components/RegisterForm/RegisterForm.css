@@ -1,0 +1,19 @@
+.register-form {
+  width: 25%;
+  height: auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.email-input, .password-input {
+  width: 100%;
+  margin: 5% auto;
+}
+
+.lpjk-logo-white {
+  width: 20%;
+  height: 20%;
+  margin-bottom: 5%;
+}

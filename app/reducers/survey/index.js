@@ -22,7 +22,10 @@ import {
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUPPLY_CHAIN_ORIGIN,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_TYPE,
   SURVEY_SET_TECHNOLOGY_CONSTRUCTION_SUPPORT,
-  SURVEY_SET_TECHNOLOGY_CONSTRUCTION_LEVEL
+  SURVEY_SET_TECHNOLOGY_CONSTRUCTION_LEVEL,
+  SURVEY_SET_INTELLECTUAL_PROPERTY_RIGHT,
+  SURVEY_SET_REVIEW_DATA,
+  SURVEY_SET_REVIEW_DETAIL
 } from 'actions/survey/constants'
 
 let initialState = {
@@ -47,7 +50,10 @@ let initialState = {
   technologyConstructionSupplyChainOrigin: {},
   technologyConstructionType: {},
   technologyConstructionSupport: {},
-  technologyConstructionLevel: {}
+  technologyConstructionLevel: {},
+  intellectualPropertyRight: {},
+  reviewData: null,
+  surveyDetail: null
 }
 
 const reducer = (state = initialState, action) => {
@@ -102,6 +108,12 @@ const reducer = (state = initialState, action) => {
       return {...state, technologyConstructionSupport: payload.technologyConstructionSupport}
     case SURVEY_SET_TECHNOLOGY_CONSTRUCTION_LEVEL:
       return {...state, technologyConstructionLevel: payload.technologyConstructionLevel}
+    case SURVEY_SET_INTELLECTUAL_PROPERTY_RIGHT:
+      return {...state, intellectualPropertyRight: payload.intellectualPropertyRight}
+    case SURVEY_SET_REVIEW_DATA:
+      return {...state, reviewData: payload.review}
+    case SURVEY_SET_REVIEW_DETAIL:
+      return {...state, surveyDetail: payload.reviewDetail}
     default:
       return {...state}
   }

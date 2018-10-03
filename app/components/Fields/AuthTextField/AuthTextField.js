@@ -1,15 +1,51 @@
 import './AuthTextField.css'
+import TextField from '@material-ui/core/TextField'
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
 
 class AuthTextField extends React.Component {
+  theme = createMuiTheme({
+    palette: {
+      primary: {
+        light: '#FFFFFF',
+        main: '#FFFFFF',
+        dark: '#FFFFFF',
+        contrastText: '#FFFFFF'
+      },
+      secondary: {
+        light: '#FFFFFF',
+        main: '#FFFFFF',
+        dark: '#FFFFFF',
+        contrastText: '#FFFFFF'
+      }
+    }
+  })
+
   render () {
-    let { label } = this.props
+    let { input, label, type, className, meta: { touched, error } } = this.props
     return (
-      <label className='field a-field a-field_a1 page__field'>
-        <input className='field__input' required />
-        <span className='field__label-wrap'>
-          <span className='field__label'>{label}</span>
-        </span>
-      </label>
+      <MuiThemeProvider theme={this.theme}>
+        <TextField
+          label={label}
+          className={className}
+          type={type}
+          margin='dense'
+          autoComplete='off'
+          error={touched && (error !== undefined)}
+          helperText={touched && error}
+          required
+          inputProps={{
+            'aria-label': 'Description',
+            'className': 'text-white'
+          }}
+          InputProps={{
+            'className': 'border-white'
+          }}
+          InputLabelProps={{
+            'className': 'text-white'
+          }}
+          {...input}
+        />
+      </MuiThemeProvider>
     )
   }
 }

@@ -54,7 +54,8 @@ module.exports = {
     new webpack.ProvidePlugin({
       axios: 'axios',
       'React': 'react',
-      'ReactDOM': 'react-dom'
+      'ReactDOM': 'react-dom',
+      'Cookies': 'js-cookie'
     })
   ]
 }

@@ -1,9 +1,16 @@
 import { put, call, takeLatest } from 'redux-saga/effects'
-import { SURVEY_PAGE_REQUEST, SURVEY_ON_CLICK_SUBMIT_SURVEY } from 'actions/survey/constants'
+import {
+  SURVEY_PAGE_REQUEST,
+  SURVEY_ON_CLICK_SUBMIT_SURVEY,
+  SURVEY_GET_ALL_SURVEYS,
+  SURVEY_GET_SURVEY_BY_ID
+} from 'actions/survey/constants'
+import * as actNotif from 'actions/notification/index'
 import * as apiSurvey from 'api/survey/index'
 import * as actSurvey from 'actions/survey/index'
 
 function * pageRequest (action) {
+  yield put(actNotif.showLoadingSpinner(true))
   try {
     let responseSurvey = yield call(apiSurvey.getSurveyData)
 
@@ -29,6 +36,7 @@ function * pageRequest (action) {
     let technologyConstructionTypes = responseSurvey.data.technology_construction_types
     let technologyConstructionSupports = responseSurvey.data.technology_construction_supports
     let technologyConstructionLevels = responseSurvey.data.technology_construction_levels
+    let intellectualPropertyRights = responseSurvey.data.intellectual_property_rights
 
     yield put(actSurvey.setCompanyCategory(companyCategories))
     yield put(actSurvey.setCompanyType(companyTypes))
@@ -52,25 +60,51 @@ function * pageRequest (action) {
     yield put(actSurvey.setTechnologyConstructionType(technologyConstructionTypes))
     yield put(actSurvey.setTechnologyConstructionSupport(technologyConstructionSupports))
     yield put(actSurvey.setTechnologyConstructionLevel(technologyConstructionLevels))
+    yield put(actSurvey.setIntellectualPropertyRight(intellectualPropertyRights))
   } catch (e) {
     console.log(e)
   } finally {
-    console.log('success')
+    yield put(actNotif.showLoadingSpinner(false))
   }
 }
 
 function * onClickSubmitSurvey (request) {
   try {
-    let responseSurvey = yield call(apiSurvey.submitSurveyData(request.payload.surveyValues))
+    let responseSurvey = yield call(apiSurvey.submitSurveyData, request.payload.surveyValues)
     console.log(responseSurvey)
   } catch (e) {
     console.log(e)
   } finally {
-    console.log('success')
+    yield put(actNotif.showSnackBar({show: true, variant: 'success', message: 'Berhasil menambahkan data teknologi.'}))
+  }
+}
+
+function * getAllSurveys (request) {
+  let response
+  try {
+    response = yield call(apiSurvey.getAllSurveysByCompany, request.payload.companyId)
+  } catch (e) {
+    console.log(e)
+  } finally {
+    yield put(actSurvey.setReviewData(response.data))
+  }
+}
+
+function * getSurveyById (request) {
+  let response
+  try {
+    const {payload: {companyId, surveyId}} = request
+    response = yield call(apiSurvey.getSurveyById, companyId, surveyId)
+  } catch (e) {
+    console.log(e)
+  } finally {
+    yield put(actSurvey.setReviewDetail(response.data))
   }
 }
 
 export default function * surveySaga () {
   yield takeLatest(SURVEY_PAGE_REQUEST, pageRequest)
   yield takeLatest(SURVEY_ON_CLICK_SUBMIT_SURVEY, onClickSubmitSurvey)
+  yield takeLatest(SURVEY_GET_ALL_SURVEYS, getAllSurveys)
+  yield takeLatest(SURVEY_GET_SURVEY_BY_ID, getSurveyById)
 }
