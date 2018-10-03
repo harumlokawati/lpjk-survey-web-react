@@ -10,6 +10,7 @@ class CheckboxField extends React.Component {
         control={
           <Checkbox
             value={label}
+            checked={input.value}
             onChange={input.onChange}
           />
         }

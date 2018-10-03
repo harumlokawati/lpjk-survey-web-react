@@ -175,7 +175,6 @@ function mapStateToProps (state) {
   const selector = formValueSelector('survey')
   const {companyId} = state.app
   const {surveyDetail} = state.survey
-  console.log(surveyDetail)
   return {
     companyId: companyId,
     data: state.survey,
