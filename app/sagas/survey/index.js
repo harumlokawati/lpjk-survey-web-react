@@ -8,6 +8,7 @@ import {
 import * as actNotif from 'actions/notification/index'
 import * as apiSurvey from 'api/survey/index'
 import * as actSurvey from 'actions/survey/index'
+import { browserHistory } from 'react-router'
 
 function * pageRequest (action) {
   yield put(actNotif.showLoadingSpinner(true))
@@ -76,6 +77,7 @@ function * onClickSubmitSurvey (request) {
     console.log(e)
   } finally {
     yield put(actNotif.showSnackBar({show: true, variant: 'success', message: 'Berhasil menambahkan data teknologi.'}))
+    browserHistory.push('/daftar_teknologi')
   }
 }
 
