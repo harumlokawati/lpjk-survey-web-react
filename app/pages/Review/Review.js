@@ -2,6 +2,8 @@ import './Review.css'
 import ReactTable from 'react-table'
 import 'react-table/react-table.css'
 import Paper from '@material-ui/core/Paper'
+import Button from '@material-ui/core/Button'
+import AddIcon from '@material-ui/icons/Add'
 import { connect } from 'react-redux'
 import { getAllSurveys } from 'actions/survey'
 import { browserHistory } from 'react-router'
@@ -55,33 +57,47 @@ class Review extends React.Component {
     }]
 
     const {reviewData} = this.props
-    return <div className='p-5'><Paper>
-      {reviewData && <ReactTable
-        data={reviewData}
-        columns={columns}
-        filterable
-        defaultPageSize={10}
-        className='-striped -highlight'
+    return <div className='container p-5'>
+      <div className='row'>
+        <div className='col pb-3'>
+          <div className='float-right'>
+            <Button variant='contained' color='primary'>
+              <AddIcon>Tambah</AddIcon>
+              &ensp;Tambah Teknologi
+            </Button>
+          </div>
+        </div>
+      </div>
+      <div className='row'>
+        <Paper className='col'>
+          {reviewData && <ReactTable
+            data={reviewData}
+            columns={columns}
+            filterable
+            defaultPageSize={10}
+            className='-striped -highlight'
 
-        // Callbacks
-        getTdProps={(state, rowInfo, column, instance) => {
-          return {
-            onClick: (e) => {
-              browserHistory.push(`/survey/${rowInfo.original.id}`)
-            }
-          }
-        }}
+            // Callbacks
+            getTdProps={(state, rowInfo, column, instance) => {
+              return {
+                onClick: (e) => {
+                  browserHistory.push(`/survey/${rowInfo.original.id}`)
+                }
+              }
+            }}
 
-        // Text
-        previousText='⇦'
-        nextText='⇨'
-        loadingText='Loading...'
-        noDataText='Tidak ada data ditemukan'
-        pageText='Halaman'
-        ofText='dari'
-        rowsText='baris'
-      />}
-    </Paper></div>
+            // Text
+            previousText='⇦'
+            nextText='⇨'
+            loadingText='Loading...'
+            noDataText='Tidak ada data ditemukan'
+            pageText='Halaman'
+            ofText='dari'
+            rowsText='baris'
+          />}
+        </Paper>
+      </div>
+    </div>
   }
 }
 
