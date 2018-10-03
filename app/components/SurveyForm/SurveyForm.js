@@ -7,7 +7,7 @@ import CheckboxFormGroup from 'components/FormGroup/CheckboxFormGroup'
 import { pageRequest, getSurveyById } from 'actions/survey'
 import * as surveyQuestions from './constants'
 import Button from '@material-ui/core/Button'
-import { isEmpty } from 'lodash'
+import { isEmpty, indexOf } from 'lodash'
 import './SurveyForm.css'
 
 class SurveyForm extends React.Component {
@@ -185,6 +185,25 @@ function mapStateToProps (state) {
       technologyConstructionAssessment: selector(state, 'technology_construction_assessment')
     },
     initialValues: {
+      Gedung: surveyDetail ? indexOf(surveyDetail.construction_product_type, 'Gedung') !== -1 : false,
+      Infrastruktur: surveyDetail ? indexOf(surveyDetail.construction_product_type, 'Infrastruktur') !== -1 : false,
+      Industri: surveyDetail ? indexOf(surveyDetail.construction_product_type, 'Industri') !== -1 : false,
+      Perumahan: surveyDetail ? indexOf(surveyDetail.construction_product_type, 'Perumahan') !== -1 : false,
+      Perencanaan: surveyDetail ? indexOf(surveyDetail.technology_construction_stage, 'Perencanaan') !== -1 : false,
+      Perancangan: surveyDetail ? indexOf(surveyDetail.technology_construction_stage, 'Perancangan') !== -1 : false,
+      Konstruksi: surveyDetail ? indexOf(surveyDetail.technology_construction_stage, 'Konstruksi') !== -1 : false,
+      Investasi: surveyDetail ? indexOf(surveyDetail.technology_construction_cost, 'Investasi') !== -1 : false,
+      Operasi: surveyDetail ? indexOf(surveyDetail.technology_construction_cost, 'Operasi') !== -1 : false,
+      Pemeliharaan: surveyDetail ? indexOf(surveyDetail.technology_construction_cost, 'Pemeliharaan') !== -1 : false,
+      'Tenaga Ahli': surveyDetail ? indexOf(surveyDetail.technology_construction_human_resource, 'Tenaga Ahli') !== -1 : false,
+      'Tenaga Terampil': surveyDetail ? indexOf(surveyDetail.technology_construction_human_resource, 'Tenaga Terampil') !== -1 : false,
+      'Tenaga Umum': surveyDetail ? indexOf(surveyDetail.technology_construction_human_resource, 'Tenaga Umum') !== -1 : false,
+      Informasi: surveyDetail ? indexOf(surveyDetail.technology_construction_support, 'Informasi') !== -1 : false,
+      Mekanik: surveyDetail ? indexOf(surveyDetail.technology_construction_support, 'Mekanik') !== -1 : false,
+      Elektronik: surveyDetail ? indexOf(surveyDetail.technology_construction_support, 'Elektronik') !== -1 : false,
+      Material: surveyDetail ? indexOf(surveyDetail.technology_construction_support, 'Material') !== -1 : false,
+      Proses: surveyDetail ? indexOf(surveyDetail.technology_construction_support, 'Proses') !== -1 : false,
+      // Lain-Lain
       construction_product_type: surveyDetail ? surveyDetail.construction_product_type : undefined,
       technology_construction_applied: surveyDetail ? surveyDetail.technology_construction_applied : undefined,
       construction_project: surveyDetail ? surveyDetail.construction_project : undefined,
@@ -208,7 +227,9 @@ function mapStateToProps (state) {
       technology_construction_supply_chain: surveyDetail ? surveyDetail.technology_construction_supply_chain : undefined,
       technology_construction_supply_chain_origin: surveyDetail ? surveyDetail.technology_construction_supply_chain_origin : undefined,
       technology_construction_innovation_origin: surveyDetail ? surveyDetail.technology_construction_innovation_origin : undefined,
-      technology_construction_innovation_category: surveyDetail ? surveyDetail.technology_construction_innovation_category : undefined,
+      technology_construction_innovation_category:
+
+        surveyDetail ? surveyDetail.technology_construction_innovation_category : undefined,
       intellectual_property_right: surveyDetail ? surveyDetail.intellectual_property_right : undefined,
       technology_construction_assessment: surveyDetail ? surveyDetail.technology_construction_assessment : undefined,
       technology_construction_level: surveyDetail ? surveyDetail.technology_construction_level : undefined
