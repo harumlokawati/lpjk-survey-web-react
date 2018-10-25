@@ -247,9 +247,7 @@ function mapStateToProps (state) {
       technology_construction_supply_chain: surveyDetail ? surveyDetail.technology_construction_supply_chain : undefined,
       technology_construction_supply_chain_origin: surveyDetail ? surveyDetail.technology_construction_supply_chain_origin : undefined,
       technology_construction_innovation_origin: surveyDetail ? surveyDetail.technology_construction_innovation_origin : undefined,
-      technology_construction_innovation_category:
-
-        surveyDetail ? surveyDetail.technology_construction_innovation_category : undefined,
+      technology_construction_innovation_category: surveyDetail ? surveyDetail.technology_construction_innovation_category : undefined,
       intellectual_property_right: surveyDetail ? surveyDetail.intellectual_property_right : undefined,
       technology_construction_assessment: surveyDetail ? surveyDetail.technology_construction_assessment : undefined,
       technology_construction_level: surveyDetail ? surveyDetail.technology_construction_level : undefined
