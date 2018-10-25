@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button'
 import AddIcon from '@material-ui/icons/Add'
 import { connect } from 'react-redux'
 import { getAllSurveys } from 'actions/survey'
-import { browserHistory } from 'react-router'
+import { browserHistory, Link } from 'react-router'
 
 class Review extends React.Component {
   componentWillMount () {
@@ -101,10 +101,12 @@ class Review extends React.Component {
       <div className='row'>
         <div className='col pb-3'>
           <div className='float-right'>
-            <Button variant='contained' color='primary'>
-              <AddIcon>Tambah</AddIcon>
-              &ensp;Tambah Teknologi
-            </Button>
+            <Link to='/survey'>
+              <Button variant='contained' color='primary'>
+                <AddIcon>Tambah</AddIcon>
+                &ensp;Tambah Teknologi
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
