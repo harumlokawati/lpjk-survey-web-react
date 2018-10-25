@@ -23,8 +23,44 @@ class Review extends React.Component {
       Header: 'Nama Teknologi',
       accessor: 'technology_construction_applied'
     }, {
-      Header: 'Tanggal Pertama',
-      accessor: 'construction_project_date'
+      Header: 'Jenis Teknologi',
+      accessor: 'technology_construction_type',
+      filterMethod: (filter, row) => {
+        if (filter.value === '0') {
+          return true
+        }
+        if (filter.value === '1') {
+          return row[filter.id] === 'Perangkat Lunak (Software)'
+        } else if (filter.value === '2') {
+          return row[filter.id] === 'Perangkat Keras (Hardware)'
+        } else if (filter.value === '3') {
+          return row[filter.id] === 'Material'
+        } else if (filter.value === '4') {
+          return row[filter.id] === 'Peralatan'
+        } else if (filter.value === '5') {
+          return row[filter.id] === 'Metode'
+        } else if (filter.value === '6') {
+          return (row[filter.id] !== 'Perangkat Lunak (Software)' &&
+            row[filter.id] !== 'Perangkat Keras (Hardware)' &&
+            row[filter.id] !== 'Material' &&
+            row[filter.id] !== 'Peralatan' &&
+            row[filter.id] !== 'Metode')
+        }
+      },
+      Filter: ({ filter, onChange }) =>
+        <select
+          onChange={event => onChange(event.target.value)}
+          style={{ width: '100%' }}
+          value={filter ? filter.value : '0'}
+        >
+          <option value={0}>{'Show All'}</option>
+          <option value={1}>{'Perangkat Lunak (Software)'}</option>
+          <option value={2}>{'Perangkat Keras (Hardware)'}</option>
+          <option value={3}>{'Material'}</option>
+          <option value={4}>{'Peralatan'}</option>
+          <option value={5}>{'Metode'}</option>
+          <option value={6}>{'Lain-lain'}</option>
+        </select>
     }, {
       id: 'project_cost',
       Header: 'Nilai Proyek',
@@ -54,9 +90,13 @@ class Review extends React.Component {
           <option value={3}>{'Rp 50.000.000.000 - Rp 100.000.000.000'}</option>
           <option value={4}>{'> Rp 100.000.000.000'}</option>
         </select>
+    }, {
+      Header: 'Tanggal Pertama',
+      accessor: 'construction_project_date'
     }]
 
     const {reviewData} = this.props
+    console.log(reviewData)
     return <div className='container p-5'>
       <div className='row'>
         <div className='col pb-3'>
