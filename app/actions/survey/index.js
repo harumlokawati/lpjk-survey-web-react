@@ -27,6 +27,7 @@ import {
   SURVEY_SET_REVIEW_DETAIL,
   SURVEY_ON_CLICK_SUBMIT_SURVEY,
   SURVEY_GET_ALL_SURVEYS,
+  SURVEY_GET_ALL_SURVEYS_COMPANY,
   SURVEY_GET_SURVEY_BY_ID
 } from './constants'
 
@@ -36,6 +37,10 @@ export function pageRequest () {
 
 export function getAllSurveys (companyId) {
   return {type: SURVEY_GET_ALL_SURVEYS, payload: {companyId}}
+}
+
+export function getAllSurveysCompany () {
+  return {type: SURVEY_GET_ALL_SURVEYS_COMPANY, payload: {}}
 }
 
 export function getSurveyById (companyId, surveyId) {

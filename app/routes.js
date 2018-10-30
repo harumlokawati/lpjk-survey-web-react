@@ -92,7 +92,7 @@ module.exports = (store) => {
             <Route onEnter={authorizeAdmin}>
               <Route path='/admin/registrasi' component={Survey} />
               <Route path='/admin/profil_perusahaan' component={Survey} />
-              <Route path='/admin/daftar_teknologi' component={Survey} />
+              <Route path='/admin/daftar_teknologi' component={Review} />
             </Route>
           </Route>
           <Route path='*' component={NoMatch} />

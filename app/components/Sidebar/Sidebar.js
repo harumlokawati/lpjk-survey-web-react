@@ -3,7 +3,6 @@ import { Link } from 'react-router'
 import { setReviewDetail } from 'actions/survey/index'
 import { connect } from 'react-redux'
 import './Sidebar.css'
-import * as profileQuestions from '../ProfileForm/constants'
 
 class Sidebar extends React.Component {
   _logoutFromApp = (e) => {

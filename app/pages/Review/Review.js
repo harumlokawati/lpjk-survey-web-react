@@ -5,13 +5,17 @@ import Paper from '@material-ui/core/Paper'
 import Button from '@material-ui/core/Button'
 import AddIcon from '@material-ui/icons/Add'
 import { connect } from 'react-redux'
-import { getAllSurveys } from 'actions/survey'
+import { getAllSurveys, getAllSurveysCompany } from 'actions/survey'
 import { browserHistory, Link } from 'react-router'
 
 class Review extends React.Component {
   componentWillMount () {
-    const {companyId} = this.props
-    this.props.dispatch(getAllSurveys(companyId))
+    const {companyId, role} = this.props
+    if (role === 'admin') {
+      this.props.dispatch(getAllSurveysCompany())
+    } else {
+      this.props.dispatch(getAllSurveys(companyId))
+    }
   }
 
   componentDidMount () {
@@ -96,7 +100,6 @@ class Review extends React.Component {
     }]
 
     const {reviewData} = this.props
-    console.log(reviewData)
     return <div className='container p-5'>
       <div className='row'>
         <div className='col pb-3'>
@@ -144,10 +147,11 @@ class Review extends React.Component {
 }
 
 function mapStateToProps (state) {
-  const { companyId } = state.app
+  const { companyId, role } = state.app
   const { reviewData } = state.survey
   return {
     companyId: companyId,
+    role: role,
     reviewData: reviewData
   }
 }

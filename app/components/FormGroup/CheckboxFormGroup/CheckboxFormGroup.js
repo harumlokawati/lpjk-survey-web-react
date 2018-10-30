@@ -9,7 +9,7 @@ import { Field, FieldArray, getFormValues } from 'redux-form'
 
 class CheckboxFormGroup extends React.Component {
   constructor (props) {
-    super (props)
+    super(props)
     this.state = {prevValue: ''}
   }
 
@@ -21,7 +21,7 @@ class CheckboxFormGroup extends React.Component {
         this.setState({prevValue: name})
       } else {
         const newFields = fields.getAll()
-        name = (newFields.indexOf(name) !== -1) ? name : this.state.prevValue;
+        name = (newFields.indexOf(name) !== -1) ? name : this.state.prevValue
         newFields.splice(newFields.indexOf(name), 1)
         fields.removeAll()
         newFields.map(value => fields.push(value))
@@ -36,11 +36,10 @@ class CheckboxFormGroup extends React.Component {
       return (
         <div>
           Lain-Lain &emsp;
-          <Field name={question.key + '_lain_lain'} component={renderTextField}/>
+          <Field name={question.key + '_lain_lain'} component={renderTextField} />
         </div>
       )
     }
-
 
     let otherValue = form[question.key + '_lain_lain'] === undefined ? '' : form[question.key + '_lain_lain']
     const renderCheckboxField = (field) => {
@@ -50,25 +49,25 @@ class CheckboxFormGroup extends React.Component {
           checked={field.input.value}
           onChange={field.input.onChange}
         />}
-        label={renderField()}/>)
+        label={renderField()} />)
     }
 
     return options.map((option, index) => {
       if (option.name === 'Lain-Lain') {
         return <Field key={index} name={otherValue} component={renderCheckboxField} onChange={onChange} />
       }
-      return (<Field key={index} name={option.name} component={CheckboxField} label={option.name} onChange={onChange}/>)
+      return (<Field key={index} name={option.name} component={CheckboxField} label={option.name} onChange={onChange} />)
     })
   }
 
   render () {
-    let {question, className, options, form} = this.props
+    let {question, className, options} = this.props
 
     return (
       <div className={`form-group ${className}`}>
         <p>{question.question}</p>
         <FormGroup>
-          <FieldArray name={question.key} component={this.renderOptions} options={options}/>
+          <FieldArray name={question.key} component={this.renderOptions} options={options} />
         </FormGroup>
       </div>
     )
