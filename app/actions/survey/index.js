@@ -25,8 +25,10 @@ import {
   SURVEY_SET_INTELLECTUAL_PROPERTY_RIGHT,
   SURVEY_SET_REVIEW_DATA,
   SURVEY_SET_REVIEW_DETAIL,
+  SURVEY_SET_COMPANIES_DATA,
   SURVEY_ON_CLICK_SUBMIT_SURVEY,
   SURVEY_GET_ALL_SURVEYS,
+  SURVEY_GET_ALL_COMPANIES,
   SURVEY_GET_ALL_SURVEYS_COMPANY,
   SURVEY_GET_SURVEY_BY_ID
 } from './constants'
@@ -37,6 +39,10 @@ export function pageRequest () {
 
 export function getAllSurveys (companyId) {
   return {type: SURVEY_GET_ALL_SURVEYS, payload: {companyId}}
+}
+
+export function getAllCompanies () {
+  return {type: SURVEY_GET_ALL_COMPANIES, payload: {}}
 }
 
 export function getAllSurveysCompany () {
@@ -148,6 +154,10 @@ export function setReviewData (review) {
 
 export function setReviewDetail (reviewDetail) {
   return {type: SURVEY_SET_REVIEW_DETAIL, payload: {reviewDetail}}
+}
+
+export function setCompaniesData (companies) {
+  return {type: SURVEY_SET_COMPANIES_DATA, payload: {companies}}
 }
 
 export function onClickSubmitSurvey (surveyValues) {

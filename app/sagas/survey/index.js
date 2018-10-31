@@ -3,6 +3,7 @@ import {
   SURVEY_PAGE_REQUEST,
   SURVEY_ON_CLICK_SUBMIT_SURVEY,
   SURVEY_GET_ALL_SURVEYS,
+  SURVEY_GET_ALL_COMPANIES,
   SURVEY_GET_ALL_SURVEYS_COMPANY,
   SURVEY_GET_SURVEY_BY_ID
 } from 'actions/survey/constants'
@@ -116,10 +117,22 @@ function * getAllSurveysCompany (request) {
   }
 }
 
+function * getAllCompanies (request) {
+  let response
+  try {
+    response = yield call(apiSurvey.getAllCompanies)
+  } catch (e) {
+    console.log(e)
+  } finally {
+    yield put(actSurvey.setCompaniesData(response.data))
+  }
+}
+
 export default function * surveySaga () {
   yield takeLatest(SURVEY_PAGE_REQUEST, pageRequest)
   yield takeLatest(SURVEY_ON_CLICK_SUBMIT_SURVEY, onClickSubmitSurvey)
   yield takeLatest(SURVEY_GET_ALL_SURVEYS, getAllSurveys)
+  yield takeLatest(SURVEY_GET_ALL_COMPANIES, getAllCompanies)
   yield takeLatest(SURVEY_GET_ALL_SURVEYS_COMPANY, getAllSurveysCompany)
   yield takeLatest(SURVEY_GET_SURVEY_BY_ID, getSurveyById)
 }
