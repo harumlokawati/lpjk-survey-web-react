@@ -17,7 +17,6 @@ class Register extends React.Component {
   }
 
   _onSubmitRegisterForm = (values) => {
-    console.log('wkwk')
     this.props.dispatch(onClickSubmitRegister(values))
   }
 }

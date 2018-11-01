@@ -33,11 +33,12 @@ function * onClickSubmitLogin (request) {
 
 function * onClickSubmitRegister (request) {
   try {
-    const {email, password} = request.payload.registerValues
+    const {email, password, role} = request.payload.registerValues
     const user = {
       user: {
         email: email,
-        password: password
+        password: password,
+        role: role
       }
     }
     yield call(apiAuth.registerUser, user)

@@ -54,7 +54,7 @@ class RegisterForm extends React.Component {
             className='register-button float-right mt-5'
             color='primary'
             type='submit'>
-            Login
+            Register
           </Button>
         </MuiThemeProvider>
       </form>
@@ -64,7 +64,10 @@ class RegisterForm extends React.Component {
 
 const mapForm = {
   form: 'register',
-  validate
+  validate,
+  initialValues: {
+    role: 'user'
+  }
 }
 
 export default reduxForm(mapForm)(RegisterForm)

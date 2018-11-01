@@ -3,7 +3,6 @@ import 'react-table/react-table.css'
 import ReactTable from 'react-table'
 import { connect } from 'react-redux'
 import { getAllCompanies } from 'actions/survey'
-import Paper from '@material-ui/core/Paper'
 
 class Company extends React.Component {
   componentWillMount () {
