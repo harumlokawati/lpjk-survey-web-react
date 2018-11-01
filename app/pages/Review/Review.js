@@ -101,7 +101,7 @@ class Review extends React.Component {
 
     const {reviewData} = this.props
     return <div className='container p-5'>
-      <div className='row'>
+      {this.props.role === 'user' && <div className='row'>
         <div className='col pb-3'>
           <div className='float-right'>
             <Link to='/survey'>
@@ -112,7 +112,7 @@ class Review extends React.Component {
             </Link>
           </div>
         </div>
-      </div>
+      </div>}
       <div className='row'>
         <Paper className='col'>
           {reviewData && <ReactTable
