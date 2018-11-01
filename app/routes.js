@@ -6,6 +6,7 @@ import App from 'pages/App'
 
 import Dashboard from 'pages/Dashboard'
 import Survey from 'pages/Survey'
+import Company from 'pages/Company'
 import CompanyProfile from 'pages/Profile'
 import Login from 'pages/Login'
 import Register from 'pages/Register'
@@ -91,7 +92,7 @@ module.exports = (store) => {
             </Route>
             <Route onEnter={authorizeAdmin}>
               <Route path='/admin/registrasi' component={Survey} />
-              <Route path='/admin/profil_perusahaan' component={Survey} />
+              <Route path='/admin/profil_perusahaan' component={Company} />
               <Route path='/admin/daftar_teknologi' component={Review} />
             </Route>
           </Route>
