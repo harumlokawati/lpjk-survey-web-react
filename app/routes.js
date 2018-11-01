@@ -11,6 +11,7 @@ import CompanyProfile from 'pages/Profile'
 import Login from 'pages/Login'
 import Register from 'pages/Register'
 import Review from 'pages/Review'
+import AdminRegister from 'pages/AdminRegister'
 
 import { showSnackBar } from 'actions/notification'
 
@@ -91,7 +92,7 @@ module.exports = (store) => {
               </Route>
             </Route>
             <Route onEnter={authorizeAdmin}>
-              <Route path='/admin/registrasi' component={Survey} />
+              <Route path='/admin/registrasi' component={AdminRegister} />
               <Route path='/admin/profil_perusahaan' component={Company} />
               <Route path='/admin/daftar_teknologi' component={Review} />
             </Route>
