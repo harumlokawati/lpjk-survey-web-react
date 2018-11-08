@@ -45,8 +45,6 @@ function * getProfile (request) {
     yield put(actProfile.setCompanyType(companyType))
   } catch (e) {
     console.log(e)
-  } finally {
-    console.log('success')
   }
 }
 
