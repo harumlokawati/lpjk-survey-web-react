@@ -1,6 +1,9 @@
 import { put, call, takeLatest } from 'redux-saga/effects'
 import { LOGIN_ON_CLICK_SUBMIT_LOGIN } from 'actions/auth/login/constants'
-import { REGISTER_ON_CLICK_SUBMIT_REGISTER } from 'actions/auth/register/constants'
+import {
+  REGISTER_ON_CLICK_SUBMIT_REGISTER,
+  REGISTER_ON_CLICK_SUBMIT_ADMIN_REGISTER
+} from 'actions/auth/register/constants'
 import * as actAuth from 'actions/auth/login/index'
 import * as regAuth from 'actions/auth/register/index'
 import * as apiAuth from 'api/auth'
@@ -17,33 +20,55 @@ function * onClickSubmitLogin (request) {
       }
     }
     const responseLogin = yield call(apiAuth.loginUser, user)
-
-    yield put(actAuth.setCompanyId(responseLogin.data.user.company_id))
-    fillCredentialData(responseLogin.data)
+    if (responseLogin.status === 200) {
+      yield put(actAuth.setCompanyId(responseLogin.data.user.company_id))
+      yield put(actAuth.setRole(responseLogin.data.user.role))
+      fillCredentialData(responseLogin.data)
+      yield put(actAuth.setIsLogin(true))
+      browserHistory.push('/profil_perusahaan')
+      yield put(actNotif.showSnackBar({show: true, variant: 'success', message: 'Selamat Datang!'}))
+    }
   } catch (e) {
     console.log(e)
-  } finally {
-    yield put(actAuth.setIsLogin(true))
-    browserHistory.push('/profil_perusahaan')
-    yield put(actNotif.showSnackBar({show: true, variant: 'success', message: 'Selamat Datang!'}))
   }
 }
 
 function * onClickSubmitRegister (request) {
   try {
-    const {email, password} = request.payload.registerValues
+    const {email, password, role} = request.payload.registerValues
     const user = {
       user: {
         email: email,
-        password: password
+        password: password,
+        role: role
       }
     }
-    yield call(apiAuth.registerUser, user)
+    const responseRegister = yield call(apiAuth.registerUser, user)
+    if (responseRegister.status === 201) {
+      browserHistory.push('/login')
+      yield put(regAuth.showDialogSuccess('Registrasi Berhasil!'))
+    }
   } catch (e) {
     console.log(e)
-  } finally {
-    browserHistory.push('/login')
-    yield put(regAuth.showDialogSuccess(true))
+  }
+}
+
+function * onClickSubmitAdminRegister (request) {
+  try {
+    const {email, password, role} = request.payload.registerValues
+    const user = {
+      user: {
+        email: email,
+        password: password,
+        role: role
+      }
+    }
+    const responseRegister = yield call(apiAuth.registerUser, user)
+    if (responseRegister.status === 201) {
+      yield put(actNotif.showSnackBar({show: true, variant: 'success', message: 'Registrasi Admin Berhasil!'}))
+    }
+  } catch (e) {
+    console.log(e)
   }
 }
 
@@ -54,4 +79,5 @@ function fillCredentialData (data) {
 export default function * authSaga () {
   yield takeLatest(LOGIN_ON_CLICK_SUBMIT_LOGIN, onClickSubmitLogin)
   yield takeLatest(REGISTER_ON_CLICK_SUBMIT_REGISTER, onClickSubmitRegister)
+  yield takeLatest(REGISTER_ON_CLICK_SUBMIT_ADMIN_REGISTER, onClickSubmitAdminRegister)
 }

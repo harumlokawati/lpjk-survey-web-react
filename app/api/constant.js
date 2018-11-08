@@ -9,6 +9,8 @@ export const REGISTER_URL = `${HOST}/auth/register`
  * Survey endpoints
  */
 export const SURVEY_GET_FORM_URL = `${HOST}/survey`
+export const SURVEY_GET_ALL = `${HOST}/surveys`
+export const SURVEY_GET_ALL_COMPANIES = `${HOST}/companies`
 export const SURVEY_POST_FORM = (id) => `${HOST}/company/${id}/survey`
 export const SURVEY_GET_BY_COMPANY = (id) => `${HOST}/company/${id}/survey`
 export const SURVEY_GET_BY_ID = (companyId, surveyId) => `${HOST}/company/${companyId}/survey/${surveyId}`

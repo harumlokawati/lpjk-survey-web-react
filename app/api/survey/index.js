@@ -22,6 +22,26 @@ export function submitSurveyData (request) {
     })
 }
 
+export function getAllSurveys () {
+  return axios.get(api.SURVEY_GET_ALL, generateRequestHeaders())
+    .then(res => {
+      return Promise.resolve(res)
+    })
+    .catch(err => {
+      return Promise.reject(err)
+    })
+}
+
+export function getAllCompanies () {
+  return axios.get(api.SURVEY_GET_ALL_COMPANIES, generateRequestHeaders())
+    .then(res => {
+      return Promise.resolve(res)
+    })
+    .catch(err => {
+      return Promise.reject(err)
+    })
+}
+
 export function getAllSurveysByCompany (companyId) {
   return axios.get(api.SURVEY_GET_BY_COMPANY(companyId), generateRequestHeaders())
     .then(res => {

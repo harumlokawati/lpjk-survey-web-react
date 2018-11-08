@@ -3,11 +3,14 @@ import {
   SURVEY_PAGE_REQUEST,
   SURVEY_ON_CLICK_SUBMIT_SURVEY,
   SURVEY_GET_ALL_SURVEYS,
+  SURVEY_GET_ALL_COMPANIES,
+  SURVEY_GET_ALL_SURVEYS_COMPANY,
   SURVEY_GET_SURVEY_BY_ID
 } from 'actions/survey/constants'
 import * as actNotif from 'actions/notification/index'
 import * as apiSurvey from 'api/survey/index'
 import * as actSurvey from 'actions/survey/index'
+import { browserHistory } from 'react-router'
 
 function * pageRequest (action) {
   yield put(actNotif.showLoadingSpinner(true))
@@ -76,6 +79,7 @@ function * onClickSubmitSurvey (request) {
     console.log(e)
   } finally {
     yield put(actNotif.showSnackBar({show: true, variant: 'success', message: 'Berhasil menambahkan data teknologi.'}))
+    browserHistory.push('/daftar_teknologi')
   }
 }
 
@@ -102,9 +106,33 @@ function * getSurveyById (request) {
   }
 }
 
+function * getAllSurveysCompany (request) {
+  let response
+  try {
+    response = yield call(apiSurvey.getAllSurveys)
+  } catch (e) {
+    console.log(e)
+  } finally {
+    yield put(actSurvey.setReviewData(response.data))
+  }
+}
+
+function * getAllCompanies (request) {
+  let response
+  try {
+    response = yield call(apiSurvey.getAllCompanies)
+  } catch (e) {
+    console.log(e)
+  } finally {
+    yield put(actSurvey.setCompaniesData(response.data))
+  }
+}
+
 export default function * surveySaga () {
   yield takeLatest(SURVEY_PAGE_REQUEST, pageRequest)
   yield takeLatest(SURVEY_ON_CLICK_SUBMIT_SURVEY, onClickSubmitSurvey)
   yield takeLatest(SURVEY_GET_ALL_SURVEYS, getAllSurveys)
+  yield takeLatest(SURVEY_GET_ALL_COMPANIES, getAllCompanies)
+  yield takeLatest(SURVEY_GET_ALL_SURVEYS_COMPANY, getAllSurveysCompany)
   yield takeLatest(SURVEY_GET_SURVEY_BY_ID, getSurveyById)
 }

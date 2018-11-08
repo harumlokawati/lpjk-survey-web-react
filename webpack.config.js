@@ -42,6 +42,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   devServer: {
+    https: true,
     historyApiFallback: true,
     contentBase: path.resolve(__dirname),
     port: 3000,

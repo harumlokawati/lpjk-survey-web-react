@@ -6,17 +6,19 @@ import App from 'pages/App'
 
 import Dashboard from 'pages/Dashboard'
 import Survey from 'pages/Survey'
+import Company from 'pages/Company'
 import CompanyProfile from 'pages/Profile'
 import Login from 'pages/Login'
 import Register from 'pages/Register'
 import Review from 'pages/Review'
+import AdminRegister from 'pages/AdminRegister'
 
 import { showSnackBar } from 'actions/notification'
 
 module.exports = (store) => {
   const history = syncHistoryWithStore(browserHistory, store)
 
-  const authorizeUser = (nextState, replace) => {
+  const checkLogin = (nextState, replace) => {
     const {app: {loggedIn}} = store.getState()
     if (!loggedIn) {
       replace('/login')
@@ -24,9 +26,9 @@ module.exports = (store) => {
   }
 
   const isLoggedIn = (nextState, replace) => {
-    const {app: {loggedIn}} = store.getState()
+    const {app: {loggedIn, role}} = store.getState()
     if (loggedIn) {
-      replace('/profil_perusahaan')
+      replace(role === 'user' ? '/profil_perusahaan' : '/admin/profil_perusahaan')
     }
   }
 
@@ -39,6 +41,20 @@ module.exports = (store) => {
         variant: 'error',
         message: 'Anda harus mengisi profil perusahaan terlebih dahulu.'
       }))
+    }
+  }
+
+  const authorizeUser = (nextState, replace) => {
+    const {app: {role}} = store.getState()
+    if (role !== 'user') {
+      replace('/admin/profil_perusahaan')
+    }
+  }
+
+  const authorizeAdmin = (nextState, replace) => {
+    const {app: {role}} = store.getState()
+    if (role !== 'admin') {
+      replace('/profil_perusahaan')
     }
   }
 
@@ -66,12 +82,19 @@ module.exports = (store) => {
             <Route exact path='/login' component={Login} />
             <Route exact path='/register' component={Register} />
           </Route>
-          <Route onEnter={authorizeUser} component={App}>
-            <Route path='/profil_perusahaan' component={CompanyProfile} />
-            <Route onEnter={checkCompanyProfile}>
-              <Route path='/survey' component={Survey} onEnter={checkCompanyProfile} />
-              <Route path='/survey/:id' component={Survey} onEnter={checkCompanyProfile} />
-              <Route path='/daftar_teknologi' component={Review} />
+          <Route onEnter={checkLogin} component={App}>
+            <Route onEnter={authorizeUser}>
+              <Route path='/profil_perusahaan' component={CompanyProfile} />
+              <Route onEnter={checkCompanyProfile}>
+                <Route path='/survey' component={Survey} onEnter={checkCompanyProfile} />
+                <Route path='/survey/:id' component={Survey} onEnter={checkCompanyProfile} />
+                <Route path='/daftar_teknologi' component={Review} />
+              </Route>
+            </Route>
+            <Route onEnter={authorizeAdmin}>
+              <Route path='/admin/registrasi' component={AdminRegister} />
+              <Route path='/admin/profil_perusahaan' component={Company} />
+              <Route path='/admin/daftar_teknologi' component={Review} />
             </Route>
           </Route>
           <Route path='*' component={NoMatch} />

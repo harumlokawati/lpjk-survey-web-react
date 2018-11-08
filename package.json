@@ -48,7 +48,7 @@
     "webpack-dev-server": "^3.1.5"
   },
   "scripts": {
-    "start:dev": "webpack-dev-server --mode development",
+    "start:dev": "webpack-dev-server --mode development --https",
     "build": "webpack --mode development",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "standard --verbose | snazzy",

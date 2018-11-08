@@ -1,6 +1,6 @@
 .survey-form {
     background-color: white;
-    margin: 5% 8%;
+    margin: 5% 15%;
     height: 100%;
     padding: 3%;
     border: 1px solid black;
@@ -11,10 +11,10 @@
     margin: 0 auto;
 }
 
-.survey-form-header h3 {
+.survey-form-header h4 {
     text-align: center;
     margin-top: 30px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .survey-form-content p {
