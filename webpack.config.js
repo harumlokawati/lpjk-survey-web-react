@@ -1,6 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const Dotenv = require('dotenv-webpack')
 
 module.exports = {
   entry: './app/index.js',
@@ -57,6 +57,7 @@ module.exports = {
       'React': 'react',
       'ReactDOM': 'react-dom',
       'Cookies': 'js-cookie'
-    })
+    }),
+    new Dotenv()
   ]
 }
